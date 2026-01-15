@@ -203,9 +203,17 @@ body {
   display: none;
 }
 
+.md-hidden {
+  display: flex;
+}
+
 @media (min-width: 768px) {
   .md-flex {
     display: flex;
+  }
+
+  .md-hidden {
+    display: none !important;
   }
 
   .md-grid-2 {

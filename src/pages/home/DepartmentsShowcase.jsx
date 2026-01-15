@@ -51,7 +51,6 @@ export default function DepartmentsShowcase() {
             <motion.div
               key={active.id}
               className="dept-visual-card"
-              style={{ background: active.color }}
              initial={{ opacity: 0, y: 20, scale: 0.97 }}
 animate={{ opacity: 1, y: 0, scale: 1 }}
 exit={{ opacity: 0, y: -20, scale: 1.03 }}

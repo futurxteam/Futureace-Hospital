@@ -1,0 +1,114 @@
+/* ===============================
+   FIXED RECTANGULAR HEADER
+=============================== */
+.header-container {
+  height: 70px;
+}
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+
+  width: 100%;
+  background: white;
+
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* ===============================
+   INNER CONTAINER
+=============================== */
+
+.header-bar {
+  max-width: 1400px;
+  margin: 0 auto;
+
+  padding: 18px 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ===============================
+   LOGO
+=============================== */
+.header-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  max-height: 40px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+
+.brand-dot {
+  color: #0ea5e9;
+}
+
+/* ===============================
+   NAV
+=============================== */
+
+.header-nav {
+  display: flex;
+  gap: 36px;
+}
+
+.header-nav a {
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #0f172a;
+}
+
+.header-nav a:hover {
+  color: #0ea5e9;
+}
+
+/* ===============================
+   CTA BUTTON
+=============================== */
+
+.header-cta {
+  padding: 12px 28px;
+  border-radius: 999px;
+
+  font-weight: 600;
+  font-size: 1rem;
+
+  text-decoration: none;
+  color: white;
+
+  background: linear-gradient(135deg, #1d4ed8, #06b6d4);
+  box-shadow: 0 6px 20px rgba(0, 120, 255, 0.35);
+}
+
+/* ===============================
+   MOBILE
+=============================== */
+
+.header-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .header-nav,
+  .header-cta {
+    display: none;
+  }
+
+  .header-menu-btn {
+    display: block;
+  }
+}

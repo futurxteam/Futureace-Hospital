@@ -3,9 +3,10 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
+import AppointmentSection from './components/ContactForm';
 import Doctors from './pages/Doctors';
-
+import About from './pages/About';
+import Specialities from './pages/Specialities';
 // Simple placeholder for other pages
 const PagePlaceholder = ({ title }) => (
   <div className="container" style={{ paddingTop: '120px', minHeight: '60vh' }}>
@@ -23,11 +24,11 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about-us" element={<PagePlaceholder title="About Us" />} />
-          <Route path="/specialities" element={<PagePlaceholder title="Our Specialities" />} />
+          <Route path="/about-us" element={<About />} />
+          <Route path="/specialities" element={<Specialities />} />
           <Route path="/doctors" element={<Doctors />} />
-          <Route path="/contact-us" element={<PagePlaceholder title="Contact Us" />} />
-          <Route path="/contact" element={<PagePlaceholder title="Book Appointment" />} />
+          <Route path="/contact-us" element={<AppointmentSection />} />
+         
         </Routes>
         <Footer />
       </div>

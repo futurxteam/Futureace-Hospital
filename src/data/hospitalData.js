@@ -7,50 +7,56 @@ export const hospitalData = {
         email: "care@futureacehospital.com",
         address: "Banjara Hills, Hyderabad, Telangana",
     },
-    departments: [
-        {
-            id: 1,
-            title: "Orthopaedics & Joint Replacement",
-            description: "Advanced robotic joint replacement and sports medicine.",
-            icon: "Bone",
-            color: "#FFE5E5" // Soft red/pink
-        },
-        {
-            id: 2,
-            title: "ENT, Head & Neck Surgery",
-            description: "Comprehensive care for ear, nose, and throat disorders.",
-            icon: "Ear",
-            color: "#E5F0FF" // Soft blue
-        },
-        {
-            id: 3,
-            title: "Dental & Maxillofacial",
-            description: "Cosmetic dentistry and complex facial surgeries.",
-            icon: "Smile",
-            color: "#E5FFEA" // Soft green
-        },
-        {
-            id: 4,
-            title: "Psychiatry & Behavioural",
-            description: "Holistic mental health support and counseling.",
-            icon: "Brain",
-            color: "#FFF5E5" // Soft orange
-        },
-        {
-            id: 5,
-            title: "Cosmetic Excellence (FACE)",
-            description: "Aesthetic procedures for confidence and renewal.",
-            icon: "Sparkles",
-            color: "#F3E5FF" // Soft purple
-        },
-        {
-            id: 6,
-            title: "Neuro & Spine",
-            description: "Expert neurological care and minimally invasive spine surgery.",
-            icon: "Activity",
-            color: "#E5F9FF" // Soft cyan
-        }
-    ],
+ departments : [
+  {
+    id: 1,
+    title: "Orthopaedics & Joint Replacement",
+    description: "Advanced robotic joint replacement and sports medicine.",
+    icon: "Bone",
+    color: "#FFE5E5",
+    image: "https://t4.ftcdn.net/jpg/17/03/86/23/240_F_1703862369_wdu2m3RyCatOlSV2BK7RC3sGQ514hsBK.jpg"
+  },
+  {
+    id: 2,
+    title: "ENT, Head & Neck Surgery",
+    description: "Comprehensive care for ear, nose, and throat disorders.",
+    icon: "Ear",
+    color: "#E5F0FF",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTP_XKmA9U_3W3-9HZTpF8wrsfn-4kmmSzr7g&s"
+  },
+  {
+    id: 3,
+    title: "Dental & Maxillofacial",
+    description: "Cosmetic dentistry and complex facial surgeries.",
+    icon: "Smile",
+    color: "#E5FFEA",
+    image: "https://dentistinnewbritain.com/images/cosmeticdentistry/2.png"
+  },
+  {
+    id: 4,
+    title: "Psychiatry & Behavioural",
+    description: "Holistic mental health support and counseling.",
+    icon: "Brain",
+    color: "#FFF5E5",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTqdV8p3yP0xLWTnYGEdvalXzwJFE82syUq0g&s"
+  },
+  {
+    id: 5,
+    title: "Cosmetic Excellence (FACE)",
+    description: "Aesthetic procedures for confidence and renewal.",
+    icon: "Sparkles",
+    color: "#F3E5FF",
+    image: "https://img.medestheticsmag.com/files/base/allured/all/image/2024/01/AdobeStock_68517996.65a09c7413f2d.png?auto=format%2Ccompress&q=70&rect=0%2C9%2C5616%2C3159&w=700" // ⬅️ replace with real image
+  },
+  {
+    id: 6,
+    title: "Neuro & Spine",
+    description: "Expert neurological care and minimally invasive spine surgery.",
+    icon: "Activity",
+    color: "#E5F9FF",
+    image: "https://d35oenyzp35321.cloudfront.net/understanding_neurological_and_spinal_emergencies_cb39d3cbf9.jpg" // ⬅️ replace with real image
+  }
+],
     facilities: [
         {
             title: "Advanced OTs",
@@ -125,24 +131,29 @@ export const hospitalData = {
             languages: "English, Hindi, Punjabi"
         }
     ],
-    testimonials: [
-        {
-            id: 1,
-            name: "Priya S.",
-            text: "The boutique feel made all the difference. It felt like a hotel, not a hospital.",
-            rating: 5
-        },
-        {
-            id: 2,
-            name: "Rahul M.",
-            text: "Incredible care by Dr. Aravind. The robotic surgery was seamless.",
-            rating: 5
-        },
-        {
-            id: 3,
-            name: "Anjali K.",
-            text: "Finally, a place that values privacy and comfort. Truly world-class.",
-            rating: 5
-        }
-    ]
+ testimonials: [
+  {
+    id: 1,
+    name: "Priya S.",
+    role: "Knee Replacement Patient",
+    image:"https://media.istockphoto.com/id/1739325597/photo/nurse-senior-woman-and-smile-with-comfort-holding-hands-or-support-in-nursing-home-for.jpg?s=612x612&w=0&k=20&c=BMCKzCUYgUGPlSugqpmKVJ3tNzeh0Sv_HjYcKOrKuKI=",
+    text: "The boutique feel made all the difference. It felt like a hotel, not a hospital. The doctors were incredibly supportive and the robotic surgery was painless and fast.",
+  },
+  {
+    id: 2,
+    name: "Ahmed K.",
+    role: "Spine Surgery Patient",
+    image: "https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvczc3LW1ja2luc2V5LTc2MTEtcG9tXzMuanBn.jpg",
+    text: "Incredible care by Dr. Aravind. The robotic surgery was seamless and the recovery time was much faster than expected.",
+  },
+]
+
 };
+export const statsData = [
+  { label: "Doctors At Work", value: 500, suffix: "+" },
+  { label: "Happy Patients", value: 58796, suffix: "+" },
+  { label: "Medical Beds", value: 500, suffix: "+" },
+  { label: "Winning Awards", value: 200, suffix: "+" },
+];
+
+

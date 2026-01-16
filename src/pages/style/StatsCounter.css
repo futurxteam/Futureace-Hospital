@@ -43,3 +43,32 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+
+/* ===============================
+   MOBILE OPTIMIZATION
+=============================== */
+@media (max-width: 600px) {
+
+  .stats-section {
+    padding: 40px 0;
+  }
+
+  .stats-grid {
+    gap: 16px;
+  }
+
+  .stat-card {
+    padding: 20px 14px;
+    border-radius: 12px;
+  }
+
+  .stat-number {
+    font-size: 1.9rem;
+    margin-bottom: 4px;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+  }
+}

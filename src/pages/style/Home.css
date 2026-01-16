@@ -1,7 +1,7 @@
 html,
 body {
   width: 100%;
-  padding-top: 90px;
+  padding-top: 5x;
   overflow-x: hidden;
 }
 
@@ -624,5 +624,21 @@ body {
   .testimonial-photo img {
     width: 140px;
     height: 140px;
+  }
+}
+/* ===============================
+   MOBILE SPECIALIST CARD SPACING (FIXED)
+=============================== */
+@media (max-width: 900px) {
+
+  .doctor-slide {
+    min-width: 100%;
+    padding: 0;                 /* IMPORTANT: remove padding */
+  }
+
+  .doctor-card-modern {
+    margin: 0 16px;             /* THIS creates real gap */
+    border-radius: 22px;
+    overflow: hidden;           /* Prevent image bleeding */
   }
 }

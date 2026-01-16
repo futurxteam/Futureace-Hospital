@@ -119,16 +119,6 @@ export const hospitalData = {
             experience: "10+ Years",
             qualification: "BDS, MDS (Maxillofacial Surgery)",
             languages: "English, Mandarin"
-        },
-        {
-            id: 5,
-            name: "Dr. Vikram Singh",
-            specialty: "Cardiology",
-            image: "https://images.unsplash.com/photo-1537368910025-bc005ca23996?auto=format&fit=crop&q=80&w=300&h=300",
-            bio: "Renowned cardiologist specializing in interventional cardiology and heart failure management.",
-            experience: "20+ Years",
-            qualification: "MBBS, MD, DM (Cardiology)",
-            languages: "English, Hindi, Punjabi"
         }
     ],
  testimonials: [

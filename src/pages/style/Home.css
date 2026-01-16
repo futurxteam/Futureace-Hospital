@@ -1,5 +1,11 @@
-body {
-  padding-top: 80px;
+
+html, body {
+  width: 100%;
+    padding-top: 90px;
+  overflow-x: hidden;
+}
+* {
+  box-sizing: border-box;
 }
 
 /* ===============================

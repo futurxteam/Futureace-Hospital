@@ -1,8 +1,13 @@
 /* ===============================
    SECTION LAYOUT
 =============================== */
+.dept-image-frame img {
+  max-width: 100%;
+}
+
 
 .dept-showcase {
+   overflow-x: hidden;
   padding: 100px 0;
 }
 
@@ -239,5 +244,11 @@
   to {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@media (max-width: 900px) {
+  .dept-mobile-detail {
+    width: 100%;
+    box-sizing: border-box;
   }
 }

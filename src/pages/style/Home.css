@@ -1,9 +1,10 @@
-
-html, body {
+html,
+body {
   width: 100%;
-    padding-top: 90px;
+  padding-top: 90px;
   overflow-x: hidden;
 }
+
 * {
   box-sizing: border-box;
 }
@@ -121,9 +122,17 @@ html, body {
 }
 
 @keyframes blink {
-  0% { opacity: 1; }
-  50% { opacity: 0; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 
@@ -152,6 +161,7 @@ html, body {
     font-size: 2.6rem;
   }
 }
+
 /* ===============================
    APPOINTMENT BUTTON
 =============================== */
@@ -160,7 +170,7 @@ html, body {
   display: inline-flex;
   align-items: center;
   gap: 16px;
- text-decoration: none !important;
+  text-decoration: none !important;
 
   padding: 12px 18px 12px 26px;
   border-radius: 999px;
@@ -180,18 +190,18 @@ html, body {
 
 .btn-appointment:hover {
   transform: translateY(-2px);
-  
- text-decoration: none !important;
+
+  text-decoration: none !important;
 
   box-shadow: 0 16px 40px rgba(6, 182, 212, 0.55);
 }
 
 .btn-appointment span {
-  background: rgba(255,255,255,0.25);
+  background: rgba(255, 255, 255, 0.25);
   width: 42px;
   height: 42px;
   border-radius: 50%;
- text-decoration: none !important;
+  text-decoration: none !important;
 
   display: flex;
   align-items: center;
@@ -242,7 +252,7 @@ html, body {
 
   margin: 0 auto 20px auto;
 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   color: #0ea5e9;
 }
 
@@ -287,9 +297,11 @@ html, body {
   position: relative;
   margin-top: 40px;
 }
+
 .section.container {
- padding-top: 90px;
+  padding-top: 90px;
 }
+
 /* ===============================
    SIDE ARROWS
 =============================== */
@@ -312,7 +324,7 @@ html, body {
   align-items: center;
   justify-content: center;
 
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   z-index: 5;
 
   transition: all 0.25s ease;
@@ -342,7 +354,7 @@ html, body {
 
 .doctors-carousel-track {
   display: flex;
-  transition: transform 0.6s cubic-bezier(.4,0,.2,1);
+  transition: transform 0.6s cubic-bezier(.4, 0, .2, 1);
 }
 
 .doctor-slide {
@@ -425,9 +437,11 @@ html, body {
   color: #475569;
   max-width: 700px;
 }
-.section.section-light{
-    padding-top: 90px;
+
+.section.section-light {
+  padding-top: 90px;
 }
+
 /* ===============================
    MOBILE
 =============================== */
@@ -473,19 +487,142 @@ html, body {
     transform: translateY(-50%);
 
     background: white;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
   }
 
   .carousel-arrow.left {
-    left: 5px;   /* inside carousel */
+    left: 5px;
+    /* inside carousel */
   }
 
   .carousel-arrow.right {
-    right: 5px;  /* inside carousel */
+    right: 5px;
+    /* inside carousel */
   }
 
   /* Add padding so arrows don't cover card content */
   .doctors-carousel-window {
     padding: 0 50px;
+  }
+}
+
+/* ===============================
+   RESPONSIVE DESIGN SYSTEM
+=============================== */
+
+/* --- Laptop (max-width: 1200px) --- */
+@media (max-width: 1200px) {
+  .hero-container {
+    padding: 0 30px;
+    gap: 30px;
+  }
+
+  .hero-title {
+    font-size: 3.2rem;
+  }
+
+  .hero-image-wrapper {
+    width: 500px;
+    height: 450px;
+  }
+}
+
+/* --- Tablet (max-width: 900px) --- */
+/* (Note: Some 900px styles already exist above, these are supplementary) */
+@media (max-width: 900px) {
+  .hero-container {
+    /* Already 1 col in existing css, ensuring padding */
+    padding: 0 20px;
+  }
+
+  .hero-title {
+    font-size: 2.8rem;
+  }
+
+  /* Ensure timeline items have space */
+  .timeline-item {
+    margin-bottom: 30px;
+  }
+}
+
+/* --- Big Phone (max-width: 600px) --- */
+@media (max-width: 600px) {
+  .hero-title {
+    font-size: 2.4rem;
+    margin: 15px 0;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+  }
+
+  .btn-appointment,
+  .btn-learnmore {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .hero-image-wrapper {
+    width: 100%;
+    height: 320px;
+    border-radius: 24px;
+  }
+
+  .section-title {
+    font-size: 2rem !important;
+    /* Force override if needed */
+  }
+
+  .timeline-icon {
+    width: 80px;
+    height: 80px;
+  }
+
+  .timeline-line {
+    display: none;
+    /* Ensure hidden */
+  }
+}
+
+/* --- Small Phone (max-width: 480px) --- */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-bg {
+    padding: 100px 0 60px;
+  }
+
+  /* Adjust carousel arrows for very small screens */
+  .carousel-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+
+  .doctors-carousel-window {
+    padding: 0 40px;
+    /* Reduced padding */
+  }
+
+  .section.container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .testimonial-wide-card {
+    padding: 24px 20px;
+  }
+
+  .testimonial-photo img {
+    width: 140px;
+    height: 140px;
   }
 }

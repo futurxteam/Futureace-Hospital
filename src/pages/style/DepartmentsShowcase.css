@@ -207,3 +207,37 @@
   object-fit: cover;
   border-radius: 16px;
 }
+/* ===============================
+   MOBILE ACCORDION DETAIL
+=============================== */
+.dept-mobile-detail {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .dept-mobile-detail {
+    display: block;
+    margin: 16px 0 28px 0;
+    padding: 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    text-align: center;
+    animation: fadeIn 0.3s ease;
+  }
+
+  .dept-visual {
+    display: none; /* Hide right panel on mobile */
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

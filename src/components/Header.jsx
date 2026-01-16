@@ -28,7 +28,7 @@ const Header = () => {
           {/* Logo */}
         
 <Link to="/" className="header-logo">
-  <img src="/FGHRC.png" alt="Futureace Hospital" className="logo-img" />
+  <img src="/FH.png" alt="Futureace Hospital" className="logo-img" />
 </Link>
 
           {/* Desktop Navigation */}

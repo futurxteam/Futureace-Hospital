@@ -112,3 +112,92 @@
     display: block;
   }
 }
+
+
+/* ===============================
+   MOBILE MENU OVERLAY
+=============================== */
+.mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 9998;
+}
+
+/* ===============================
+   MOBILE DRAWER
+=============================== */
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 80%;
+  max-width: 360px;
+  background: #ffffff;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: -10px 0 30px rgba(0,0,0,0.15);
+}
+
+/* ===============================
+   DRAWER HEADER
+=============================== */
+.mobile-drawer-header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.mobile-drawer-header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ===============================
+   MOBILE NAV LINKS
+=============================== */
+.mobile-nav {
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.mobile-nav a {
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+.mobile-nav a:hover {
+  color: #0ea5e9;
+}
+
+/* ===============================
+   MOBILE CTA
+=============================== */
+.mobile-cta {
+  margin-top: 20px;
+  padding: 14px 22px;
+  border-radius: 999px;
+
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.05rem;
+
+  color: white;
+  text-decoration: none;
+
+  background: linear-gradient(135deg, #1d4ed8, #06b6d4);
+  box-shadow: 0 6px 20px rgba(0, 120, 255, 0.35);
+}

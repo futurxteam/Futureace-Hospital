@@ -318,11 +318,11 @@ body {
 }
 
 .carousel-arrow.left {
-  left: -60px;
+  left: -50px;
 }
 
 .carousel-arrow.right {
-  right: -26px;
+  right: -15px;
 }
 
 /* ===============================
@@ -426,7 +426,7 @@ body {
    MOBILE
 =============================== */
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .testimonial-wide-card {
     grid-template-columns: 1fr;
     text-align: center;
@@ -441,4 +441,45 @@ body {
   }
 }
 
+/* ===============================
+   MOBILE CAROUSEL OVERRIDES
+=============================== */
+@media (max-width: 900px) {
+  .doctor-slide {
+    min-width: 100%;
+  }
+}
 
+
+
+
+/* ===============================
+   MOBILE CAROUSEL ARROWS FIX
+=============================== */
+@media (max-width: 900px) {
+
+  .carousel-arrow {
+    width: 42px;
+    height: 42px;
+    font-size: 22px;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    background: white;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+  }
+
+  .carousel-arrow.left {
+    left: 5px;   /* inside carousel */
+  }
+
+  .carousel-arrow.right {
+    right: 5px;  /* inside carousel */
+  }
+
+  /* Add padding so arrows don't cover card content */
+  .doctors-carousel-window {
+    padding: 0 50px;
+  }
+}

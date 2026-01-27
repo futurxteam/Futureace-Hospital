@@ -201,3 +201,130 @@
   background: linear-gradient(135deg, #1d4ed8, #06b6d4);
   box-shadow: 0 6px 20px rgba(0, 120, 255, 0.35);
 }
+
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  width: 100%;
+  transition: all 0.35s ease;
+}
+
+/* TRANSPARENT STATE */
+.site-header.transparent {
+  background: transparent;
+  box-shadow: none;
+}
+
+/* SCROLLED STATE */
+.site-header.scrolled {
+  background: white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+
+.cta-eldiora {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+
+  height: 52px;                 /* 👈 fixed height = perfect pill */
+  padding: 0 18px 0 22px;       /* 👈 horizontal only */
+width: fit-content;
+  border-radius: 9999px;        /* 👈 true pill */
+  gap: 14px;
+border: 2px solid rgba(255, 255, 255, 0.9);
+background-clip: padding-box;
+  background: white;
+  color: #0f172a;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.18);
+
+  transition: color 0.4s ease, box-shadow 0.4s ease, transform 0.2s ease;
+}
+/* Sliding blue layer */
+.cta-eldiora::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #1d4ed8, #2563eb, #0ea5e9);
+  transform: translateX(-100%);
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+  border-radius: inherit; /* 👈 CRITICAL: makes edges perfect */
+
+}
+
+/* Content layer */
+.cta-eldiora > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Text */
+.cta-label {
+  white-space: nowrap;
+}
+
+/* Right circle */
+.cta-dot {
+width: 38px;
+height: 38px;
+
+
+border-radius: 50%;
+background: #0ea5e9;
+
+
+display: flex;
+align-items: center;
+justify-content: center;
+
+
+color: white;
+flex-shrink: 0;
+
+
+transition: background 0.4s ease, transform 0.4s ease;
+}
+/* Arrow */
+.cta-arrow {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+/* HOVER STATE */
+.cta-eldiora:hover {
+  color: white;
+  box-shadow: 0 12px 35px rgba(37, 99, 235, 0.45);
+}
+
+.cta-eldiora:hover::before {
+  transform: translateX(0%);
+}
+
+.cta-eldiora:hover .cta-dot {
+  background: #eab308; /* golden circle like sample */
+  transform: scale(1.05);
+}
+
+.cta-eldiora:hover .cta-arrow {
+  transform: rotate(15deg) scale(1.1);
+}
+.cta-eldiora {
+-webkit-font-smoothing: antialiased;
+backface-visibility: hidden;
+}
+@media (max-width: 900px) {
+.site-header .cta-eldiora,
+.site-header .header-cta {
+display: none !important;
+}
+}

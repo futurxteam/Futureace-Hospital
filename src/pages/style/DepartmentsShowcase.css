@@ -210,3 +210,21 @@ box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);}
 margin: 0 auto; /* 👈 centers horizontally */
 }
 }
+@media (max-width: 1000px) {
+
+
+.dept-image-small {
+opacity: 1 !important; /* 👈 always visible */
+visibility: visible !important;
+transform: none !important;
+
+
+margin: 0 auto; /* 👈 center image */
+}
+
+
+.dept-item-wrapper:hover .dept-image-small {
+transform: none; /* 👈 disable hover zoom on mobile */
+box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+}

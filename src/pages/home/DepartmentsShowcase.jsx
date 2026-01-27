@@ -23,7 +23,7 @@ export default function DepartmentsShowcase() {
               <Reveal key={dept.id} direction="top" >
                 <div
                   className="dept-item-wrapper"
-                  onClick={() => navigate("/services")}
+                  onClick={() => navigate("/specialities")}
                   style={{ cursor: "pointer" }}
                 >
                   {/* LEFT: Icon + Text */}

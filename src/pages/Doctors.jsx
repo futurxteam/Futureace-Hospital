@@ -1,20 +1,22 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { hospitalData } from "../data/hospitalData";
-import { Calendar, Award, BookOpen, User } from "lucide-react";
+import { Award, BookOpen, User } from "lucide-react";
 
 const Doctors = () => {
-  return (
-    <div style={{ background: "#f8fafc" }}>
+  const isMobile = window.innerWidth < 600;
 
-      {/* ================= HERO BANNER ================= */}
+  return (
+    <div style={{ background: "#f8fafc", overflowX: "hidden" }}>
+
+      {/* ================= HERO ================= */}
       <section
         style={{
           position: "relative",
           width: "100%",
           height: "60vh",
           minHeight: "420px",
-          backgroundImage: "url(/doctors.jpg)", // 👈 change if needed
+          backgroundImage: "url(/doctors.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           display: "flex",
@@ -22,7 +24,6 @@ const Doctors = () => {
           justifyContent: "center",
         }}
       >
-        {/* Overlay */}
         <div
           style={{
             position: "absolute",
@@ -32,7 +33,6 @@ const Doctors = () => {
           }}
         />
 
-        {/* Content */}
         <div
           style={{
             position: "relative",
@@ -43,9 +43,7 @@ const Doctors = () => {
             maxWidth: "900px",
           }}
         >
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+          <h1
             style={{
               fontSize: "clamp(32px, 5vw, 56px)",
               fontWeight: 800,
@@ -53,70 +51,65 @@ const Doctors = () => {
             }}
           >
             World-Class Specialists
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            style={{
-              fontSize: "18px",
-              opacity: 0.95,
-            }}
-          >
+          <p style={{ fontSize: "18px", opacity: 0.95 }}>
             Meet our team of expert doctors dedicated to providing personalized and compassionate care.
-          </motion.p>
+          </p>
         </div>
       </section>
 
       {/* ================= CONTENT ================= */}
-      <section
-        style={{
-          padding: "100px 0",
-        }}
-      >
-        <div className="container">
-
+      <section style={{ padding: "60px 0" }}>
+        <div
+          style={{
+            maxWidth: "1200px",
+            margin: "0 auto",
+            padding: "0 16px",
+          }}
+        >
           <div
             style={{
               display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-              gap: "3rem",
-              width: "105%",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: "24px",
+              width: "100%",
             }}
           >
             {hospitalData.doctors.map((doctor, index) => (
               <motion.div
                 key={doctor.id}
-                initial={{ opacity: 0, y: 40 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ delay: index * 0.05 }}
                 style={{
                   background: "white",
-                  borderRadius: "28px",
-                  padding: "28px",
-                  boxShadow: "0 20px 60px rgba(0,0,0,0.08)",
+                  borderRadius: "24px",
+                  padding: "20px",
+                  boxShadow: "0 10px 30px rgba(0,0,0,0.08)",
+                  width: "100%",
+                  boxSizing: "border-box",
                 }}
               >
-                {/* Card Layout */}
+                {/* CARD LAYOUT */}
                 <div
                   style={{
                     display: "flex",
-                    gap: "20px",
-                    flexDirection: "row",
-                    alignItems: "flex-start",
+                    gap: "16px",
+                    flexDirection: isMobile ? "column" : "row",
+                    alignItems: isMobile ? "center" : "flex-start",
                   }}
                 >
-                  {/* Image */}
+                  {/* IMAGE */}
                   <div
                     style={{
-                      width: "120px",
-                      height: "120px",
-                      borderRadius: "22px",
+                      width: isMobile ? "140px" : "120px",
+                      height: isMobile ? "140px" : "120px",
+                      borderRadius: "20px",
                       overflow: "hidden",
                       flexShrink: 0,
-                      boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+                      boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
                     }}
                   >
                     <img
@@ -130,20 +123,21 @@ const Doctors = () => {
                     />
                   </div>
 
-                  {/* Content */}
-                  <div style={{ flex: 1 }}>
+                  {/* CONTENT */}
+                  <div style={{ flex: 1, width: "100%" }}>
+                    {/* TOP ROW */}
                     <div
                       style={{
                         display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "flex-start",
-                        gap: "12px",
+                        flexDirection: isMobile ? "column" : "row",
+                        alignItems: isMobile ? "flex-start" : "flex-start",
+                        gap: "8px",
                       }}
                     >
-                      <div>
+                      <div style={{ flex: 1 }}>
                         <h2
                           style={{
-                            fontSize: "22px",
+                            fontSize: "20px",
                             fontWeight: 700,
                             marginBottom: "4px",
                             color: "#0f172a",
@@ -155,62 +149,65 @@ const Doctors = () => {
                           style={{
                             color: "#2563eb",
                             fontWeight: 600,
-                            fontSize: "15px",
+                            fontSize: "14px",
                           }}
                         >
                           {doctor.specialty}
                         </p>
                       </div>
 
-                  <button
-  style={{
-    padding: "6px 18px",
-    borderRadius: "999px",
-    border: "none",
-    minWidth: "80px",
-    background: "#2563eb",
-    color: "white",
-    fontWeight: 600,
-    cursor: "pointer",
-    marginLeft: "auto",
-    boxShadow: "0 6px 16px rgba(37,99,235,0.35)",
-    transition: "all 0.25s ease",
-  }}
->
-  Book
-</button>
+                      {/* BUTTON */}
+                      <button
+                        style={{
+                          alignSelf: isMobile ? "flex-end" : "flex-start",
+                          padding: "6px 16px",
+                          borderRadius: "999px",
+                          border: "none",
+                          minWidth: "72px",
+                          background: "#2563eb",
+                          color: "white",
+                          fontWeight: 600,
+                          cursor: "pointer",
+                          whiteSpace: "nowrap",
+                          flexShrink: 0,
+                          boxShadow: "0 6px 16px rgba(37,99,235,0.35)",
+                        }}
+                      >
+                        Book
+                      </button>
                     </div>
 
+                    {/* BIO */}
                     <p
                       style={{
                         color: "#475569",
                         lineHeight: 1.6,
                         marginTop: "12px",
                         marginBottom: "16px",
-                        fontSize: "14.5px",
+                        fontSize: "14px",
                       }}
                     >
                       {doctor.bio}
                     </p>
 
-                    {/* Meta */}
+                    {/* META */}
                     <div
                       style={{
                         display: "grid",
-                        gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-                        gap: "10px",
-                        fontSize: "14px",
+                        gridTemplateColumns: "1fr",
+                        gap: "8px",
+                        fontSize: "13px",
                         color: "#64748b",
                       }}
                     >
-                      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                        <Award size={16} /> {doctor.experience}
+                      <div style={{ display: "flex", gap: "8px" }}>
+                        <Award size={14} /> {doctor.experience}
                       </div>
-                      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                        <BookOpen size={16} /> {doctor.qualification}
+                      <div style={{ display: "flex", gap: "8px" }}>
+                        <BookOpen size={14} /> {doctor.qualification}
                       </div>
-                      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                        <User size={16} /> {doctor.languages}
+                      <div style={{ display: "flex", gap: "8px" }}>
+                        <User size={14} /> {doctor.languages}
                       </div>
                     </div>
                   </div>
@@ -218,7 +215,6 @@ const Doctors = () => {
               </motion.div>
             ))}
           </div>
-
         </div>
       </section>
     </div>

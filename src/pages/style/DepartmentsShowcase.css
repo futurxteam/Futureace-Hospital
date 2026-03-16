@@ -1,254 +1,257 @@
 /* ===============================
    SECTION LAYOUT
 =============================== */
-.dept-image-frame img {
-  max-width: 100%;
-}
-
-
-.dept-showcase {
-   overflow-x: hidden;
-  padding: 100px 0;
-}
-
-.dept-layout {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 60px;
-  align-items: center;
-}
-
-/* ===============================
-   LEFT LIST
-=============================== */
-
-.dept-list {
-  display: flex;
-  flex-direction: column;
-  gap: 22px;
-}
-
-/* ===============================
-   DEPARTMENT CARD
-=============================== */
-
-.dept-tile {
-  display: flex;
-  gap: 18px;
-  align-items: flex-start;
-
+.dept-grid-section {
+  padding: 120px 0;
   background: #ffffff;
-  border-radius: 18px;
-  padding: 22px 24px;
-
-  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-
-  cursor: pointer;
-
-  transition:
-    background 0.35s ease,
-    box-shadow 0.35s ease,
-    transform 0.25s ease,
-    color 0.25s ease;
 }
 
-/* Hover = blue gradient fill */
-.dept-tile:hover {
-  background: linear-gradient(135deg, #1e40af, #06b6d4);
-  box-shadow: 0 18px 45px rgba(2, 132, 199, 0.35);
-  transform: translateY(-3px);
-}
-
-/* ===============================
-   TEXT COLORS
-=============================== */
-
-.dept-tile h4 {
-  font-size: 1.2rem;
-  font-weight: 700;
-  margin-bottom: 6px;
-  color: #0f172a;
-}
-
-.dept-tile p {
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: #475569;
-}
-
-/* On hover → text becomes white */
-.dept-tile:hover h4,
-.dept-tile:hover p {
-  color: #ffffff;
-}
-
-/* ===============================
-   ICON CIRCLE
-=============================== */
-
-.dept-icon {
-  min-width: 56px;
-  height: 56px;
-  border-radius: 50%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: #f8fafc;
-  color: #0f172a;
-
-  transition: background 0.25s ease, color 0.25s ease;
-}
-
-/* Keep icon circle white on hover */
-.dept-tile:hover .dept-icon {
-  background: #ffffff !important;
-}
-
-/* Icon color on hover */
-.dept-tile:hover .dept-icon svg {
-  color: #1e40af;
-}
-
-/* ===============================
-   RIGHT VISUAL PANEL
-=============================== */
-
-.dept-visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.dept-visual-card {
-  width: 100%;
-  max-width: 420px;
-  height: 420px;
-
-  border-radius: 28px;
-  padding: 40px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+.section-header-centered {
   text-align: center;
-
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  max-width: 800px;
+  margin: 0 auto 80px;
 }
 
-.dept-visual-icon {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.7);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin-bottom: 24px;
-}
-
-.dept-visual-card h3 {
-  font-size: 1.6rem;
+.section-subtitle {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #1e40af;
   font-weight: 700;
+  font-size: 0.9rem;
   margin-bottom: 12px;
 }
 
-.dept-visual-card p {
-  color: #334155;
-  max-width: 320px;
+.section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 24px;
+}
+
+.section-description {
+  font-size: 1.1rem;
+  color: #64748b;
   line-height: 1.6;
 }
 
 /* ===============================
-   MOBILE
+   FILTER TABS
 =============================== */
-
-@media (max-width: 900px) {
-  .dept-layout {
-    grid-template-columns: 1fr;
-  }
-
-  .dept-visual {
-    order: -1;
-    margin-bottom: 40px;
-  }
+.filter-container {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
 }
 
-
-.dept-tile {
-  outline: none;
+.filter-btn {
+  background: #f1f5f9;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 100px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #64748b;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
-.dept-tile:focus {
-  outline: none;
+.filter-btn:hover {
+  color: #1e40af;
+  background: #e2e8f0;
 }
 
-.dept-tile:focus-visible {
-  outline: none;
+.filter-btn.active {
+  color: #ffffff;
+  background: #1e40af;
 }
+
+.active-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #1e40af;
+  border-radius: 100px;
+  z-index: -1;
+}
+
 /* ===============================
-   IMAGE DISPLAY (CLEAN VERSION)
+   DEPARTMENT GRID
 =============================== */
-
-.dept-image-frame {
-  width: 100%;
-  height: 240px;
-  border-radius: 20px;
-  padding: 4px;
-
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-
-  margin-bottom: 22px;
+.dept-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 30px;
 }
 
-.dept-image-frame img {
+.dept-card {
+  text-decoration: none;
+  display: block;
+  height: 100%;
+}
+
+.dept-card-inner {
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dept-card:hover .dept-card-inner {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(30, 64, 175, 0.1);
+  border-color: rgba(30, 64, 175, 0.1);
+}
+
+/* IMAGE WORK */
+.dept-card-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.dept-card-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.dept-card:hover .dept-card-image img {
+  transform: scale(1.1);
+}
+
+.dept-card-tag {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #1e40af;
+  z-index: 3;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dept-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, rgba(15, 23, 42, 0.4) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.dept-card:hover .dept-card-overlay {
+  opacity: 1;
+}
+
+/* CONTENT WORK */
+.dept-card-content {
+  padding: 30px;
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.dept-card-icon {
+  width: 56px;
+  height: 56px;
   border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -58px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border: 4px solid #ffffff;
 }
+
+.dept-card-content h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin: 20px 0 12px;
+  line-height: 1.3;
+}
+
+.dept-card-content p {
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  flex-grow: 1;
+}
+
+/* FOOTER WORK */
+.dept-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.view-more-text {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: #1e40af;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.arrow-icon {
+  color: #1e40af;
+  transition: transform 0.3s ease;
+}
+
+.dept-card:hover .arrow-icon {
+  transform: translateX(5px);
+}
+
 /* ===============================
-   MOBILE ACCORDION DETAIL
+   MOBILE RESPONSIVENESS
 =============================== */
-.dept-mobile-detail {
-  display: none;
-}
-
 @media (max-width: 900px) {
-  .dept-mobile-detail {
-    display: block;
-    margin: 16px 0 28px 0;
-    padding: 20px;
-    background: white;
-    border-radius: 20px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-    text-align: center;
-    animation: fadeIn 0.3s ease;
+  .dept-grid-section {
+    padding: 80px 0;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  .dept-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 
-  .dept-visual {
-    display: none; /* Hide right panel on mobile */
+  .dept-card-image {
+    height: 180px;
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-8px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@media (max-width: 900px) {
-  .dept-mobile-detail {
-    width: 100%;
-    box-sizing: border-box;
+@media (min-width: 901px) and (max-width: 1200px) {
+  .dept-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

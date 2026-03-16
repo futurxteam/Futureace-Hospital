@@ -2,7 +2,7 @@
    FIXED RECTANGULAR HEADER
 =============================== */
 .header-container {
-  height: 70px;
+  height: 90px;
 }
 
 .site-header {
@@ -13,9 +13,24 @@
   z-index: 9999;
 
   width: 100%;
-  background: white;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(0, 180, 216, 0.1);
+  animation: slideDown 0.6s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /* ===============================
@@ -26,11 +41,12 @@
   max-width: 1400px;
   margin: 0 auto;
 
-  padding: 18px 28px;
+  padding: 16px 28px;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 2rem;
 }
 
 /* ===============================
@@ -39,10 +55,18 @@
 .header-logo {
   display: flex;
   align-items: center;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+  flex-shrink: 0;
+}
+
+.header-logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 4px 12px rgba(0, 180, 216, 0.2));
 }
 
 .logo-img {
-  max-height: 40px;
+  max-height: 70px;
   width: auto;
   object-fit: contain;
   display: block;
@@ -60,17 +84,37 @@
 .header-nav {
   display: flex;
   gap: 36px;
+  flex: 1;
+  justify-content: center;
 }
 
 .header-nav a {
   text-decoration: none;
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 500;
   color: #0f172a;
+  position: relative;
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding-bottom: 4px;
+}
+
+.header-nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00b4d8, #0077b6);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .header-nav a:hover {
-  color: #0ea5e9;
+  color: #00b4d8;
+}
+
+.header-nav a:hover::after {
+  width: 100%;
 }
 
 /* ===============================
@@ -82,13 +126,42 @@
   border-radius: 999px;
 
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 0.95rem;
 
   text-decoration: none;
   color: white;
 
-  background: linear-gradient(135deg, #1d4ed8, #06b6d4);
-  box-shadow: 0 6px 20px rgba(0, 120, 255, 0.35);
+  background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
+  box-shadow: 0 6px 20px rgba(0, 180, 216, 0.3);
+  
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.header-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transition: left 0.5s ease;
+}
+
+.header-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(0, 180, 216, 0.4);
+}
+
+.header-cta:hover::before {
+  left: 100%;
+}
+
+.header-cta:active {
+  transform: translateY(0);
 }
 
 /* ===============================

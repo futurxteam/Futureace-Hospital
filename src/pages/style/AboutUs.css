@@ -1,0 +1,262 @@
+.about-page {
+    line-height: 1.6;
+    color: var(--text-main);
+    background: var(--bg-color);
+}
+
+.about-hero {
+    background: var(--surface-gradient);
+    text-align: center;
+    padding: 160px 20px 100px;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.about-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.about-hero p {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.about-intro {
+    padding: 80px 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-intro p {
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+    color: var(--text-main);
+    opacity: 0.9;
+}
+
+.about-philosophy {
+    background: var(--text-main);
+    color: white;
+    padding: 100px 2rem;
+    text-align: center;
+    margin: 60px 0;
+}
+
+.about-philosophy h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.about-philosophy p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    line-height: 1.8;
+}
+
+.mission-vision {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    padding: 80px 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mission, .vision {
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    background: var(--bg-color);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid #eee;
+    transition: transform 0.3s ease;
+}
+
+.mission:hover, .vision:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.mission h2, .vision h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.values {
+    padding: 100px 2rem;
+    background: #f8fafc;
+}
+
+.values h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 60px;
+    font-weight: 800;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.value {
+    background: white;
+    padding: 40px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid #f1f5f9;
+    transition: all 0.3s ease;
+}
+
+.value:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-lg);
+}
+
+.value h4 {
+    color: var(--secondary-color);
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.why-futureace {
+    padding: 100px 2rem;
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.why-futureace h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.why-futureace .subtitle {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 3rem;
+}
+
+.futureace-experience {
+    padding: 100px 2rem;
+    background: var(--primary-gradient);
+    color: white;
+    margin: 100px 0;
+    width: 100%;
+}
+
+.futureace-experience h2 {
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 60px;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.experience-grid div {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 40px 30px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.experience-grid div:hover {
+    transform: scale(1.02);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.experience-grid h4 {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+    color: white;
+    font-weight: 700;
+}
+
+.experience-grid p {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    opacity: 0.95;
+}
+
+@media (max-width: 1200px) {
+    .experience-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .futureace-experience {
+        padding: 80px 1rem;
+        margin: 60px 0;
+    }
+
+    .experience-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .experience-grid div {
+        padding: 30px 20px;
+    }
+
+    .about-hero {
+        padding: 140px 20px 80px;
+    }
+
+    .about-intro {
+        padding: 60px 1.5rem;
+    }
+
+    .about-intro p {
+        font-size: 1.1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .values h2 {
+        font-size: 2.2rem;
+        margin-bottom: 40px;
+    }
+
+    .mission-vision {
+        padding: 40px 1rem;
+        grid-template-columns: 1fr;
+    }
+
+    .mission, .vision {
+        padding: 30px 20px;
+    }
+
+    .experience-grid h4 {
+        font-size: 1.4rem;
+    }
+
+    .experience-grid p {
+        font-size: 1rem;
+    }
+}

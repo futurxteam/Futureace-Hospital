@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import { UserRound, Users, Bed, Award } from "lucide-react";
 import "../style/StatsCounter.css";
 
 function Counter({ value, suffix = "" }) {
@@ -39,30 +40,41 @@ function Counter({ value, suffix = "" }) {
 
 export default function StatsCounter() {
   const stats = [
-    { label: "Doctors At Work", value: 500, suffix: "+" },
-    { label: "Happy Patients", value: 58796, suffix: "+" },
-    { label: "Medical Beds", value: 500, suffix: "+" },
-    { label: "Winning Awards", value: 200, suffix: "+" },
+    { label: "Specialist Doctors", value: 50, suffix: "+", icon: UserRound, color: "#e0f2fe" },
+    { label: "Happy Patients", value: 58000, suffix: "+", icon: Users, color: "#f0fdf4" },
+    { label: "Premium Beds", value: 100, suffix: "+", icon: Bed, color: "#fef2f2" },
+    { label: "Excellence Awards", value: 15, suffix: "+", icon: Award, color: "#fff7ed" },
   ];
 
   return (
     <section className="stats-section">
       <div className="container stats-grid">
-        {stats.map((stat, i) => (
-          <motion.div
-            key={i}
-            className="stat-card"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-          >
-            <div className="stat-number">
-              <Counter value={stat.value} suffix={stat.suffix} />
-            </div>
-            <div className="stat-label">{stat.label}</div>
-          </motion.div>
-        ))}
+        {stats.map((stat, i) => {
+          const IconComp = stat.icon;
+          return (
+            <motion.div
+              key={i}
+              className="stat-card"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+            >
+              <div 
+                className="stat-icon-box" 
+                style={{ backgroundColor: stat.color }}
+              >
+                <IconComp size={24} className="stat-icon" />
+              </div>
+              <div className="stat-info">
+                <div className="stat-number">
+                  <Counter value={stat.value} suffix={stat.suffix} />
+                </div>
+                <div className="stat-label">{stat.label}</div>
+              </div>
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );

@@ -1,14 +1,16 @@
 import React from "react";
 import "../pages/style/AboutUs.css";
 import Reveal from "./Reveal";
+import { Gem, CalendarCheck, ShieldCheck, Search } from "lucide-react";
 
 export default function AboutFutureace() {
     return (
         <div className="about-page">
 
             {/* Hero Section */}
-            <section className="about-hero">
-                <div className="container">
+            <section className="about-hero" style={{ backgroundImage: "url(/about.jpg)" }}>
+                <div className="about-hero-overlay" />
+                <div className="container about-hero-container">
                     <Reveal>
                         <h1>About Futureace</h1>
                         <p>A Boutique Hospital for Thoughtfully Planned Care</p>
@@ -114,21 +116,21 @@ export default function AboutFutureace() {
                                 <p>Transparent pricing, predictable schedules, and honest communication.</p>
                             </div>
                         </Reveal>
-                        
+
                         <Reveal delay={0.4}>
                             <div className="value">
                                 <h4>Personalised Care</h4>
                                 <p>Every patient is treated with dignity and individual attention.</p>
                             </div>
                         </Reveal>
-                        
+
                         <Reveal delay={0.5}>
                             <div className="value">
                                 <h4>Collaboration with Experts</h4>
                                 <p>We partner with leading specialists to provide exceptional expertise under one roof.</p>
                             </div>
                         </Reveal>
-                        
+
                         <Reveal delay={0.6}>
                             <div className="value">
                                 <h4>Care Practised, Not Promised</h4>
@@ -169,37 +171,55 @@ export default function AboutFutureace() {
 
             {/* Experience Section */}
             <section className="futureace-experience">
+                <div className="experience-pattern" />
                 <div className="container">
                     <Reveal>
-                        <h2>The Futureace Experience</h2>
+                        <div className="experience-header">
+                            <span className="experience-tag">Why We Are Different</span>
+                            <h2>The Futureace Experience</h2>
+                            <div className="header-line" />
+                        </div>
                     </Reveal>
 
                     <div className="experience-grid">
                         <Reveal delay={0.1}>
-                            <div>
-                                <h4>Boutique & Personal</h4>
-                                <p>A premium experience where every patient receives personalised attention.</p>
+                            <div className="experience-card">
+                                <div className="card-icon-wrap">
+                                    <Gem size={32} />
+                                </div>
+                                <div className="card-content">
+                                    <h4>Boutique & Personal</h4>
+                                    <p>A premium experience where every patient receives personalised attention, moving away from the "number-based" hospital model.</p>
+                                </div>
+                                <span className="card-number">01</span>
                             </div>
                         </Reveal>
 
-                        <Reveal delay={0.2}>
-                            <div>
-                                <h4>Planned & Peaceful</h4>
-                                <p>A dedicated hub for scheduled care without emergency disruptions.</p>
-                            </div>
-                        </Reveal>
+
 
                         <Reveal delay={0.3}>
-                            <div>
-                                <h4>Ethical by Design</h4>
-                                <p>Doctors practise need-based medicine without quotas or pressure.</p>
+                            <div className="experience-card">
+                                <div className="card-icon-wrap">
+                                    <ShieldCheck size={32} />
+                                </div>
+                                <div className="card-content">
+                                    <h4>Ethical by Design</h4>
+                                    <p>Doctors practise need-based medicine without quotas or pressure, focusing solely on what's best for your long-term health.</p>
+                                </div>
+                                <span className="card-number">03</span>
                             </div>
                         </Reveal>
 
                         <Reveal delay={0.4}>
-                            <div>
-                                <h4>Transparent & Trustworthy</h4>
-                                <p>Every test, procedure, and cost is clearly explained.</p>
+                            <div className="experience-card">
+                                <div className="card-icon-wrap">
+                                    <Search size={32} />
+                                </div>
+                                <div className="card-content">
+                                    <h4>Transparent & Trustworthy</h4>
+                                    <p>Every test, procedure, and cost is clearly explained upfront, so you can make informed decisions without surprises.</p>
+                                </div>
+                                <span className="card-number">04</span>
                             </div>
                         </Reveal>
                     </div>

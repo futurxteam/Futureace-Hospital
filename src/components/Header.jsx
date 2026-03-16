@@ -24,6 +24,8 @@ window.addEventListener("scroll", onScroll);
 return () => window.removeEventListener("scroll", onScroll);
 }, []);
   const isHome = location.pathname === "/";
+  const isAbout = location.pathname === "/about-us";
+  const shouldBeTransparent = (isHome || isAbout) && !scrolled;
 
   return (
     <>
@@ -31,7 +33,7 @@ return () => window.removeEventListener("scroll", onScroll);
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`site-header ${(scrolled || !isHome) ? "scrolled" : "transparent"}`}
+        className={`site-header ${shouldBeTransparent ? "transparent" : "scrolled"}`}
       >
         <div className="header-bar">
 

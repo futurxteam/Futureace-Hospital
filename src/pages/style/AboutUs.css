@@ -5,27 +5,48 @@
 }
 
 .about-hero {
-    background: var(--surface-gradient);
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     text-align: center;
-    padding: 160px 20px 100px;
-    border-bottom: 1px solid var(--glass-border);
+    padding: 160px 0 100px;
+    color: white;
+}
+
+.about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.3));
+    z-index: 1;
+}
+
+.about-hero-container {
+    position: relative;
+    z-index: 2;
+    padding: 0 40px;
+    max-width: 1400px;
+    width: 100%;
 }
 
 .about-hero h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
     font-weight: 800;
-    margin-bottom: 1rem;
-    background: var(--primary-gradient);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+    color: white;
+    text-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
 
 .about-hero p {
-    font-size: 1.25rem;
-    color: var(--text-muted);
-    max-width: 600px;
+    font-size: 1.4rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
     margin: 0 auto;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.2);
 }
 
 .about-intro {
@@ -126,7 +147,7 @@
 }
 
 .value h4 {
-    color: var(--secondary-color);
+    color: var(--primary-color);
     font-size: 1.4rem;
     margin-bottom: 1rem;
     font-weight: 700;
@@ -151,57 +172,177 @@
     margin-bottom: 3rem;
 }
 
+/* ===============================
+   EXPERIENCE SECTION (REDESIGNED)
+=============================== */
+
 .futureace-experience {
-    padding: 100px 2rem;
-    background: var(--primary-gradient);
+    padding: 120px 0;
+    background: #0f172a; /* Deep Navy */
     color: white;
-    margin: 100px 0;
+    position: relative;
+    overflow: hidden;
+    margin: 80px 0;
+}
+
+.experience-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+    background-size: 40px 40px;
+    opacity: 0.5;
+    z-index: 0;
 }
 
-.futureace-experience h2 {
+.experience-header {
     text-align: center;
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 60px;
+    margin-bottom: 80px;
+    position: relative;
+    z-index: 1;
 }
 
+.experience-tag {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(14, 165, 233, 0.1);
+    color: #38bdf8;
+    border-radius: 999px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border: 1px solid rgba(14, 165, 233, 0.2);
+}
+
+.experience-header h2 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 24px;
+    color: white;
+    letter-spacing: -0.02em;
+}
+
+.header-line {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #0ea5e9, #6366f1);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* Grid Layout */
 .experience-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     gap: 30px;
-    max-width: 1400px;
-    margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
-.experience-grid div {
-    background: rgba(255, 255, 255, 0.1);
+/* Card Design */
+.experience-card {
+    background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    padding: 40px 30px;
-    border-radius: var(--radius-md);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 32px;
+    padding: 50px 40px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
+    height: 100%;
+}
+
+.experience-card:hover {
+    background: rgba(255, 255, 255, 0.06);
+    transform: translateY(-10px);
+    border-color: rgba(14, 165, 233, 0.3);
+    box-shadow: 0 30px 60px rgba(0,0,0,0.3);
+}
+
+.card-icon-wrap {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #0ea5e9 0%, #3b82f6 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease;
-}
-
-.experience-grid div:hover {
-    transform: scale(1.02);
-    background: rgba(255, 255, 255, 0.15);
-}
-
-.experience-grid h4 {
-    font-size: 1.6rem;
-    margin-bottom: 1.2rem;
+    margin-bottom: 30px;
     color: white;
-    font-weight: 700;
+    box-shadow: 0 12px 24px rgba(14, 165, 233, 0.25);
+    transition: transform 0.4s ease;
 }
 
-.experience-grid p {
-    font-size: 1.05rem;
-    line-height: 1.5;
-    opacity: 0.95;
+.experience-card:hover .card-icon-wrap {
+    transform: rotate(10deg) scale(1.1);
+}
+
+.experience-card h4 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: white;
+    line-height: 1.25;
+}
+
+.experience-card p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #94a3b8;
+    margin-bottom: 0;
+    flex-grow: 1;
+}
+
+.card-number {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.03);
+    line-height: 1;
+    pointer-events: none;
+    transition: color 0.4s ease;
+}
+
+.experience-card:hover .card-number {
+    color: rgba(14, 165, 233, 0.05);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1200px) {
+    .experience-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .futureace-experience {
+        padding: 80px 0;
+    }
+
+    .experience-header {
+        margin-bottom: 50px;
+    }
+
+    .experience-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .experience-card {
+        padding: 40px 30px;
+    }
+
+    .experience-card h4 {
+        font-size: 1.4rem;
+    }
 }
 
 @media (max-width: 1200px) {

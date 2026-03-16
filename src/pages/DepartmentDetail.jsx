@@ -32,7 +32,7 @@ const DepartmentDetail = () => {
       <section className="dept-detail-hero" style={{ background: `linear-gradient(135deg, ${department.color} 0%, #ffffff 100%)` }}>
         <div className="container">
           <div className="dept-hero-content">
-            <Reveal direction="left">
+            <Reveal direction="down">
               <div className="dept-hero-text">
                 <Link to="/" className="back-link">
                   <Icons.ArrowLeft size={20} /> Back to Home
@@ -55,7 +55,7 @@ const DepartmentDetail = () => {
                 )}
               </div>
             </Reveal>
-            <Reveal direction="right">
+            <Reveal direction="down" delay={0.2}>
               <div className="dept-hero-image">
                 <img src={department.image} alt={department.title} />
               </div>
@@ -67,7 +67,7 @@ const DepartmentDetail = () => {
       {/* Intro Description */}
       <section className="dept-intro-section container">
         <div className="dept-intro-grid">
-          <Reveal direction="left">
+          <Reveal direction="down">
             <div className="intro-text-wrap">
               <h2>Our Promise</h2>
               <p>{department.longDescription || department.description}</p>
@@ -76,7 +76,7 @@ const DepartmentDetail = () => {
           </Reveal>
           
           {department.whyChoose && (
-            <Reveal direction="right">
+            <Reveal direction="down" delay={0.2}>
               <div className="why-choose-grid">
                 {department.whyChoose.map((item, i) => (
                   <div key={i} className="why-item">
@@ -95,7 +95,7 @@ const DepartmentDetail = () => {
 
       {/* Surgeries Section */}
       <section className="dept-surgeries-section container">
-        <Reveal direction="up">
+        <Reveal direction="down">
           <div className="surgeries-header">
             <h2>Services & Procedures</h2>
             <p>Click on a category to explore detailed procedures and our approach.</p>
@@ -105,7 +105,7 @@ const DepartmentDetail = () => {
         <div className="service-categories-list">
           {department.serviceCategories ? (
             department.serviceCategories.map((cat, idx) => (
-              <Reveal key={idx} direction="up" delay={idx * 0.1}>
+              <Reveal key={idx} direction="down" delay={idx * 0.1}>
                 <div className={`service-cat-card ${expandedIndex === idx ? 'expanded' : ''}`}>
                   <div 
                     className="service-cat-header" 
@@ -148,7 +148,7 @@ const DepartmentDetail = () => {
           ) : (
             <div className="surgeries-grid">
                {department.surgeries && department.surgeries.map((surgery, index) => (
-                <Reveal key={index} direction="up" delay={index * 0.05}>
+                <Reveal key={index} direction="down" delay={index * 0.05}>
                   <div className="surgery-card">
                     <div className="surgery-dot"></div>
                     <span className="surgery-name">{surgery}</span>
@@ -162,7 +162,7 @@ const DepartmentDetail = () => {
 
       {/* CTA Section */}
       <section className="dept-cta-section container">
-        <Reveal direction="up">
+        <Reveal direction="down">
           <div className="dept-cta-card">
             <h2>Ready to feel like yourself again?</h2>
             <p>Your journey begins with a private, unhurried conversation—no pressure, just clarity.</p>

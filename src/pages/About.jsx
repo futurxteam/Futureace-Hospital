@@ -7,7 +7,7 @@ import "../pages/style/About.css";
 /* Reuse your SectionTitle or inline */
 const SectionTitle = ({ children }) => (
   <motion.h2
-    initial={{ opacity: 0, y: 20 }}
+    initial={{ opacity: 0, y: -20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     className="section-title"
@@ -56,7 +56,7 @@ style={{ backgroundImage: "url(/about.jpg)" }}
 
 <div className="about-hero-content">
 <motion.h1
-initial={{ opacity: 0, y: 20 }}
+initial={{ opacity: 0, y: -20 }}
 animate={{ opacity: 1, y: 0 }}
 transition={{ duration: 0.6 }}
 >
@@ -65,7 +65,7 @@ World-Class Healthcare,<br />Built Around You
 
 
 <motion.p
-initial={{ opacity: 0, y: 20 }}
+initial={{ opacity: 0, y: -20 }}
 animate={{ opacity: 1, y: 0 }}
 transition={{ delay: 0.2, duration: 0.6 }}
 >

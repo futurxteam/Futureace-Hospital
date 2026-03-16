@@ -298,6 +298,19 @@
   box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
+.site-header.scrolled .header-nav a {
+  color: #0f172a !important;
+}
+
+.site-header.scrolled .header-menu-btn {
+  color: #0f172a !important;
+}
+
+.site-header.scrolled .cta-eldiora {
+  border: 1.5px solid #e2e8f0;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
 
 .cta-eldiora {
   position: relative;

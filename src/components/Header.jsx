@@ -23,14 +23,16 @@ setScrolled(window.scrollY > 60);
 window.addEventListener("scroll", onScroll);
 return () => window.removeEventListener("scroll", onScroll);
 }, []);
+  const isHome = location.pathname === "/";
+
   return (
     <>
       {/* ================= FLOATING HEADER ================= */}
       <motion.header
-  initial={{ y: -100 }}
-  animate={{ y: 0 }}
-  className={`site-header ${scrolled ? "scrolled" : "transparent"}`}
->
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        className={`site-header ${(scrolled || !isHome) ? "scrolled" : "transparent"}`}
+      >
         <div className="header-bar">
 
           {/* Logo */}

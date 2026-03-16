@@ -1,92 +1,88 @@
-import React, { useState, useEffect } from "react";
+import React, { useRef } from "react";
 import { motion } from "framer-motion";
 import { hospitalData } from "../data/hospitalData";
 import SectionHeader from "./SectionHeader";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Award, BookOpen, User } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function DoctorsSection() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [itemsToShow, setItemsToShow] = useState(3);
+  const scrollRef = useRef(null);
 
-  // Update items to show based on window width
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 640) {
-        setItemsToShow(1);
-      } else if (window.innerWidth < 1024) {
-        setItemsToShow(2);
-      } else {
-        setItemsToShow(3);
-      }
-    };
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const totalDoctors = hospitalData.doctors.length;
-  const maxIndex = Math.max(0, totalDoctors - itemsToShow);
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => Math.min(prev + 1, maxIndex));
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => Math.max(prev - 1, 0));
+  const scroll = (direction) => {
+    if (!scrollRef.current) return;
+    const amount = 360;
+    scrollRef.current.scrollBy({
+      left: direction === "left" ? -amount : amount,
+      behavior: "smooth",
+    });
   };
 
   return (
     <section className="section doctors-showcase">
       <div className="container">
-        <SectionHeader 
-          subtitle="Our Experts" 
-          align="center" 
-          title="Meet Our Specialists" 
-        />
-
-        <div className="doctors-carousel-wrapper">
-          <div className="doctors-carousel-window">
-            <motion.div 
-              className="doctors-carousel-track"
-              animate={{ x: `calc(-${currentIndex * (100 / itemsToShow)}% - ${currentIndex * (30 / itemsToShow)}px)` }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            >
-              {hospitalData.doctors.map((doctor, idx) => (
-                <div key={idx} className="doctor-card-premium">
-                  <div className="doctor-card-image">
-                    <img src={doctor.image} alt={doctor.name} />
-                  </div>
-                  <div className="doctor-card-info">
-                    <h3 className="doctor-card-name">{doctor.name}</h3>
-                    <p className="doctor-card-specialty">{doctor.specialty}</p>
-                  </div>
-                </div>
-              ))}
-            </motion.div>
+        <div className="doctors-header-row">
+          <SectionHeader
+            subtitle="Our Experts"
+            align="left"
+            title="Meet Our Specialists"
+          />
+          <div className="carousel-nav">
+            <button className="carousel-btn" onClick={() => scroll("left")} aria-label="Scroll left">
+              <ChevronLeft size={22} />
+            </button>
+            <button className="carousel-btn" onClick={() => scroll("right")} aria-label="Scroll right">
+              <ChevronRight size={22} />
+            </button>
           </div>
         </div>
 
-        {/* Unified Navigation */}
-        <div className="carousel-nav">
-          <button 
-            className="carousel-btn" 
-            onClick={handlePrev} 
-            disabled={currentIndex === 0}
-            aria-label="Previous"
-          >
-            <ChevronLeft size={24} />
-          </button>
-          <button 
-            className="carousel-btn" 
-            onClick={handleNext} 
-            disabled={currentIndex >= maxIndex}
-            aria-label="Next"
-          >
-            <ChevronRight size={24} />
-          </button>
+        <div className="doctors-scroll-track" ref={scrollRef}>
+          {hospitalData.doctors.map((doctor, idx) => (
+            <motion.div
+              key={doctor.id || idx}
+              className="doctor-card-v2"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.05 }}
+            >
+              <div className="doctor-card-v2-layout">
+                {/* Image */}
+                <div className="doctor-card-v2-img">
+                  <img src={doctor.image} alt={doctor.name} />
+                </div>
+
+                {/* Content */}
+                <div className="doctor-card-v2-content">
+                  <div className="doctor-card-v2-top">
+                    <div>
+                      <h3 className="doctor-card-v2-name">{doctor.name}</h3>
+                      <p className="doctor-card-v2-specialty">{doctor.specialty}</p>
+                    </div>
+                    <Link to="/contact-us" className="doctor-card-v2-book">Book</Link>
+                  </div>
+
+                  <p className="doctor-card-v2-bio">
+                    {doctor.bio || "Highly experienced specialist providing world-class medical care with compassion and precision."}
+                  </p>
+
+                  <div className="doctor-card-v2-meta">
+                    {doctor.experience && (
+                      <span><Award size={14} /> {doctor.experience}</span>
+                    )}
+                    {doctor.qualification && (
+                      <span><BookOpen size={14} /> {doctor.qualification}</span>
+                    )}
+                    {doctor.languages && (
+                      <span><User size={14} /> {doctor.languages}</span>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
-

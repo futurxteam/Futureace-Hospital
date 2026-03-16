@@ -9,20 +9,28 @@ const NAV_ITEMS = ["Home", "About Us", "Specialities", "Doctors", "Contact Us"];
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-
+const [scrolled, setScrolled] = useState(false);
   // Close menu when route changes
   useEffect(() => {
     setIsOpen(false);
   }, [location]);
+useEffect(() => {
+const onScroll = () => {
+setScrolled(window.scrollY > 60);
+};
 
+
+window.addEventListener("scroll", onScroll);
+return () => window.removeEventListener("scroll", onScroll);
+}, []);
   return (
     <>
       {/* ================= FLOATING HEADER ================= */}
       <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        className="site-header"
-      >
+  initial={{ y: -100 }}
+  animate={{ y: 0 }}
+  className={`site-header ${scrolled ? "scrolled" : "transparent"}`}
+>
         <div className="header-bar">
 
           {/* Logo */}
@@ -44,9 +52,12 @@ const Header = () => {
           </nav>
 
           {/* Desktop CTA */}
-<Link to="/contact-us" className="header-cta">
-            Book Appointment
-          </Link>
+  <Link to="/contact-us" className="cta-eldiora">
+<span className="cta-label">Book Now</span>
+<span className="cta-dot">
+<span className="cta-arrow">↗</span>
+</span>
+</Link>
 
           {/* Mobile Toggle */}
           <button

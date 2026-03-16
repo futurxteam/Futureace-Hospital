@@ -14,12 +14,21 @@ import {
   HeartPulse,
   Armchair
 } from "lucide-react";
-
+import "../components/AppointmentSection.css";
+import { useNavigate } from "react-router-dom";
 function TypewriterHeading({ onDone }) {
   const text = "Get Better Care For Your Health";
   const [displayed, setDisplayed] = useState("");
   const [done, setDone] = useState(false);
+ useEffect(() => {
+  const interval = setInterval(() => {
+    setCurrentIndex((prev) =>
+      (prev + 1) % hospitalData.testimonials.length
+    );
+  }, 6000); // change every 6 seconds
 
+  return () => clearInterval(interval);
+}, []);
   useEffect(() => {
     let i = 0;
     const interval = setInterval(() => {
@@ -68,6 +77,65 @@ const SectionTitle = ({ children, align = "center" }) => (
    HOME PAGE
 =============================== */
 const Home = () => {
+     const FACILITY_IMAGES = [
+  "/section1.png",
+  "/section2.png",
+  "/section3.png",
+];
+
+const [activeFacility, setActiveFacility] = useState(0);
+const [testimonialIndex, setTestimonialIndex] = useState(0);
+const [facilityMobileIndex, setFacilityMobileIndex] = useState(0);
+const t = hospitalData.testimonials[testimonialIndex];
+const nextTestimonial = () => {
+  setTestimonialIndex((prev) =>
+    (prev + 1) % hospitalData.testimonials.length
+  );
+};
+useEffect(() => {
+  if (window.innerWidth > 900) return; // only run on mobile
+
+  const interval = setInterval(() => {
+    setFacilityMobileIndex((prev) => (prev + 1) % FACILITY_IMAGES.length);
+  }, 3000); // change every 3 seconds
+
+  return () => clearInterval(interval);
+}, []);
+const prevTestimonial = () => {
+  setTestimonialIndex((prev) =>
+    (prev - 1 + hospitalData.testimonials.length) % hospitalData.testimonials.length
+  );
+};
+  const HERO_IMAGES = [
+"/banner1.jpg",
+"/banner2.jpg",
+"/banner3.jpg",
+];
+
+const [heroIndex, setHeroIndex] = useState(0);
+
+useEffect(() => {
+  const interval = setInterval(() => {
+    setHeroIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+  }, 5000); // 5 seconds
+
+  return () => clearInterval(interval);
+}, []);
+const [doctorIndex, setDoctorIndex] = useState(0);
+
+
+const nextDoctor = () => {
+setDoctorIndex((prev) =>
+(prev + 1) % hospitalData.doctors.length
+);
+};
+
+
+const prevDoctor = () => {
+setDoctorIndex((prev) =>
+(prev - 1 + hospitalData.doctors.length) % hospitalData.doctors.length
+);
+};
   const FACILITY_ICONS = {
     Stethoscope: Stethoscope,
     MonitorPlay: MonitorPlay,
@@ -141,59 +209,68 @@ const Home = () => {
     }
   };
 
+  
   return (
     <div className="home-root">
 
       {/* ================= HERO ================= */}
       {/* ================= HERO ================= */}
-      <section className="hero hero-bg">
-        <div className="hero-container">
+<section className="hero hero-bg-slider">
 
+  {/* Background slider */}
+  <div className="hero-bg-wrapper">
+    {HERO_IMAGES.map((img, index) => (
+      <motion.div
+        key={index}
+        className="hero-bg-slide"
+        style={{ backgroundImage: `url(${img})` }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: index === heroIndex ? 1 : 0 }}
+        transition={{ duration: 1.2 }}
+      />
+    ))}
+  </div>
+
+  {/* Dark overlay */}
+  <div className="hero-overlay" />
+
+  {/* Content */}
+<div className="hero-content-overlay">
+<div className="hero-container">
           {/* LEFT */}
-          <div className="hero-left">
-            <span className="hero-badge">
-              South India's First Boutique Hospital
-            </span>
-
-            <TypewriterHeading onDone={() => setTypingDone(true)} />
-            {typingDone && (
-              <motion.p
-                className="hero-desc"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1.0, ease: "easeOut" }}
-              >
-                Experience white-glove service in a state-of-the-art facility.
-                We treat you like family, not just a patient.
-              </motion.p>
-            )}
+          <Reveal direction="top">
+        <div className="hero-left">
+<span className="hero-badge">
+South India's First Boutique Hospital
+</span>
 
 
-            <div className="hero-actions">
-              <Link to="/contact-us" className="btn-appointment">
-                Appointment
-                <span>➜</span>
-              </Link>
+<h1 className="hero-title">
+Get Better Care For <br />
+<span className="gradient-text">Your Health</span>
+</h1>
 
-              <button className="btn-learnmore">Learn More</button>
-            </div>
-          </div>
 
+<p className="hero-desc">
+Experience white-glove service in a state-of-the-art facility.
+We treat you like family, not just a patient.
+</p>
+
+
+<div className="hero-actions">
+<Link to="/contact-us" className="cta-eldiora">
+<span className="cta-label">Get care now</span>
+<span className="cta-dot">
+<span className="cta-arrow">↗</span>
+</span>
+</Link>
+</div>
+</div>
+</Reveal>
           {/* RIGHT IMAGE */}
-          <div className="hero-right">
-            <motion.div
-              className="hero-image-wrapper"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-            >
-              <img
-                src="https://wallpapercave.com/wp/wp2655089.jpg"
-                alt="Doctors"
-              />
-            </motion.div>
-          </div>
+        
 
+        </div>
         </div>
       </section>
       <Reveal>
@@ -206,141 +283,234 @@ const Home = () => {
 
       {/* ================= FACILITIES ================= */}
       {/* ================= FACILITIES (TIMELINE STYLE) ================= */}
-      <Reveal direction="down">
-        <section className="section section-light">
-          <div className="container">
-            <SectionTitle>World-Class Facilities</SectionTitle>
+      <Reveal direction="top">
+ 
+<section className="section section-light">
+  <div className="container">
+    <SectionTitle>World-Class Facilities</SectionTitle>
 
-            <div className="facilities-timeline">
+    <div className="facilities-wrap">
 
-              {/* Connector line */}
-              <div className="timeline-line" />
-              {hospitalData.facilities.slice(0, 3).map((fac, idx) => {
-                const IconComp = FACILITY_ICONS[fac.icon] || Stethoscope;
+      {/* LEFT LIST */}
+      <div className="facilities-list">
+        {hospitalData.facilities.slice(0, 3).map((fac, idx) => {
+          const IconComp = FACILITY_ICONS[fac.icon] || Stethoscope;
 
-                return (
-                  <motion.div
-                    key={idx}
-                    className="timeline-item"
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: idx * 0.15 }}
-                  >
-                    <div className="timeline-icon">
-                      <IconComp size={36} />
-                    </div>
+          return (
+            <div
+              key={idx}
+              className={`facility-row ${activeFacility === idx ? "active" : ""}`}
+              onMouseEnter={() => setActiveFacility(idx)}
+            >
+              <div className="facility-left">
+                <div className="facility-icon">
+                  <IconComp size={28} />
+                </div>
+                <h4>{fac.title}</h4>
+              </div>
 
-                    <h4 className="timeline-title">{fac.title}</h4>
-                    <p className="timeline-desc">{fac.description}</p>
-                  </motion.div>
-                );
-              })}
+              <div className="facility-right">
+                <span className="facility-index">
+                  {String(idx + 1).padStart(2, "0")}
+                </span>
+                <span className="facility-arrow">↗</span>
+              </div>
 
-
+              <div className="facility-line" />
             </div>
-          </div>
-        </section>
+          );
+        })}
+      </div>
+
+      {/* RIGHT IMAGE PREVIEW */}
+     {/* RIGHT IMAGE PREVIEW (DESKTOP) */}
+<div className="facility-preview desktop-only">
+  <img src={FACILITY_IMAGES[activeFacility]} alt="Facility preview" />
+</div>
+
+{/* MOBILE SLIDER */}
+<div className="facility-preview-mobile mobile-only">
+  <img
+    src={FACILITY_IMAGES[facilityMobileIndex]}
+    alt="Facility preview"
+  />
+
+  <div className="facility-mobile-dots">
+    {FACILITY_IMAGES.map((_, i) => (
+      <span
+        key={i}
+        className={i === facilityMobileIndex ? "active" : ""}
+        onClick={() => setFacilityMobileIndex(i)}
+      />
+    ))}
+  </div>
+</div>
+    </div>
+  </div>
+</section>
       </Reveal>
 
       {/* ================= DOCTORS ================= */}
-      <Reveal direction="up">
-        <section className="section container">
-          <div className="section-header">
-            <SectionTitle align="left">Meet Our Specialists</SectionTitle>
+      <Reveal direction="top">
+       {/* ================= DOCTORS SHOWCASE (TESTIMONIAL STYLE) ================= */}
+<section className="section container doctors-showcase">
 
-            <div className="doctors-carousel-wrapper">
+  <div className="doctors-showcase-header">
+    <h2 className="doctors-title">
+      Meet Our Specialists
+    </h2>
+  </div>
 
-              {/* LEFT ARROW */}
-              <button className="carousel-arrow left" onClick={prevSlide}>
-                ‹
-              </button>
+  <div className="doctors-showcase-layout">
 
-              {/* RIGHT ARROW */}
-              <button className="carousel-arrow right" onClick={nextSlide}>
-                ›
-              </button>
+    {/* LEFT CONTENT CARD */}
+    <div className="doctor-info-card">
 
-              <div className="doctors-carousel-window"
-                onTouchStart={onTouchStart}
-                onTouchMove={onTouchMove}
-                onTouchEnd={onTouchEnd}>
-                <div
-                  className="doctors-carousel-track"
-                  style={{ transform: `translateX(-${currentIndex * (100 / itemsPerSlide)}%)` }}
-                >
-                  {hospitalData.doctors.map((doc) => (
-                    <div key={doc.id} className="doctor-slide">
+      <span className="doctor-tag">
+        Specialist Doctor
+      </span>
 
-                      <div className="doctor-card-modern">
-                        <div className="doctor-image-wrap">
-                          <img src={doc.image} alt={doc.name} />
-                          <div className="doctor-plus">+</div>
-                        </div>
+      <h3 className="doctor-name">
+        {hospitalData.doctors[doctorIndex].name}
+      </h3>
 
-                        <div className="doctor-meta">
-                          <h3>{doc.name}</h3>
-                          <p className="doctor-role">{doc.specialty}</p>
-                          <p className="doctor-exp">Working Since 2004</p>
-                        </div>
-                      </div>
+      <p className="doctor-role-big">
+        {hospitalData.doctors[doctorIndex].specialty}
+      </p>
 
-                    </div>
-                  ))}
-                </div>
+      <p className="doctor-desc">
+        {hospitalData.doctors[doctorIndex].bio || "Highly experienced specialist providing world-class medical care with compassion and precision."}
+      </p>
+
+    </div>
+<div className="doctor-nav-buttons mobile-only">
+<button onClick={prevDoctor}>←</button>
+<button onClick={nextDoctor}>→</button>
+</div>
+    {/* RIGHT IMAGE */}
+    <div className="doctor-image-big">
+      <img
+        src={hospitalData.doctors[doctorIndex].image}
+        alt={hospitalData.doctors[doctorIndex].name}
+      />
+    </div>
+
+    {/* RIGHT SIDE NAME + ARROWS */}
+    <div className="doctor-side-info">
+
+      <h4>{hospitalData.doctors[doctorIndex].name}</h4>
+      <p>{hospitalData.doctors[doctorIndex].specialty}</p>
+
+      <div className="doctor-nav-buttons">
+      <button onClick={prevDoctor}>←</button>
+<button onClick={nextDoctor}>→</button>
+      </div>
+
+    </div>
+
+
+
+  </div>
+
+</section>
+      </Reveal>
+
+      {/* ================= TESTIMONIALS ================= */}
+      {/* ================= TESTIMONIALS ================= */}
+      <Reveal direction="top">
+        {/* ================= TESTIMONIAL SHOWCASE ================= */}
+<section className="section container testimonial-showcase">
+
+
+{t && (
+  <section className="section container testimonial-showcase">
+
+    <h2 className="testimonial-title">
+      Hear from our patients
+    </h2>
+
+    <div className="testimonial-layout">
+
+      {/* LEFT IMAGE */}
+      <div className="testimonial-image">
+        <img src={t.image} alt={t.name} />
+      </div>
+
+      {/* RIGHT CONTENT */}
+      <div className="testimonial-content-box">
+
+        <h3 className="testimonial-heading">
+          {t.headline || "Around-the-clock care delivered with compassion"}
+        </h3>
+
+        <div className="testimonial-quote-box">
+          <p className="testimonial-quote-text">
+            “{t.text}”
+          </p>
+
+          <div className="testimonial-person">
+            <strong>{t.name}</strong>
+            <span>{t.role}</span>
+          </div>
+        </div>
+
+        {/* NAV BUTTONS */}
+        <div className="testimonial-nav">
+          <button onClick={prevTestimonial}>←</button>
+          <button onClick={nextTestimonial}>→</button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+)}
+
+</section>
+      </Reveal>
+      <Reveal direction="top">
+         <section className="contact-mini">
+        <div className="container contact-mini-grid">
+
+          {/* LEFT FORM */}
+          <div className="contact-mini-form">
+            <div className="contact-mini-tag">CONTACT US</div>
+            <h2>Book Appointment</h2>
+
+            <form>
+              <div className="row">
+                <input type="text" placeholder="Your Name" />
+                <input type="email" placeholder="Your Email" />
               </div>
 
-            </div>
+              <div className="row">
+                <input type="tel" placeholder="Your Mobile Number" />
+                <input type="tel" placeholder="Your Alternative Number" />
+              </div>
 
+              <textarea placeholder="Write your message"></textarea>
+
+              <Link to="/contact-us" className="cta-eldiora">
+                <span className="cta-label">Contact Us</span>
+                <span className="cta-dot">
+                  <span className="cta-arrow">↗</span>
+                </span>
+              </Link>
+            </form>
           </div>
-        </section>
-      </Reveal>
 
-      {/* ================= TESTIMONIALS ================= */}
-      {/* ================= TESTIMONIALS ================= */}
-      <Reveal direction="lwft">
-        <section className="section section-light">
-          <div className="container">
-            <SectionTitle>Patient Stories</SectionTitle>
-
-            <div className="testimonials-list">
-              {hospitalData.testimonials.map((t) => (
-                <motion.div
-                  key={t.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  className="testimonial-wide-card"
-                >
-                  {/* Left image */}
-                  <div className="testimonial-photo">
-                    <img src={t.image} alt={t.name} />
-                  </div>
-
-                  {/* Right content */}
-                  <div className="testimonial-content">
-                    <div className="testimonial-quote">“</div>
-
-                    <h3>{t.name}</h3>
-                    <p className="testimonial-role">{t.role}</p>
-
-                    <p className="testimonial-text">{t.text}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
+          {/* RIGHT MAP */}
+          <div className="contact-mini-map">
+            <iframe
+              src="https://www.google.com/maps?q=kochi&output=embed"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
-        </section>
-      </Reveal>
-      <Reveal direction="up">
-        <section className="section-contact">
 
-          <div className="contact-container">
-            <div className="contact-info">
-              <AppointmentSection />
-            </div>
-          </div>
-        </section>
+        </div>
+      </section>
       </Reveal>
     </div>
   );

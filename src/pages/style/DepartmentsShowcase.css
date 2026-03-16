@@ -1,5 +1,5 @@
 /* ===============================
-   SECTION LAYOUT
+   CONTAINER
 =============================== */
 .dept-grid-section {
   padding: 120px 0;
@@ -228,6 +228,7 @@
   transform: translateX(5px);
 }
 
+
 /* ===============================
    MOBILE RESPONSIVENESS
 =============================== */
@@ -235,11 +236,11 @@
   .dept-grid-section {
     padding: 80px 0;
   }
-  
+
   .section-title {
     font-size: 2.2rem;
   }
-  
+
   .dept-grid {
     grid-template-columns: 1fr;
     gap: 24px;

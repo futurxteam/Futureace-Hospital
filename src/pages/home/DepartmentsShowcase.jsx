@@ -5,13 +5,14 @@ import * as Icons from "lucide-react";
 import { hospitalData } from "../../data/hospitalData";
 import "../style/DepartmentsShowcase.css";
 import Reveal from "../../components/Reveal";
+import { useNavigate } from "react-router-dom";
 
 export default function DepartmentsShowcase() {
   const [filter, setFilter] = useState("All");
   const categories = ["All", "Surgical", "Clinical", "Wellness"];
 
-  const filteredDepts = filter === "All" 
-    ? hospitalData.departments 
+  const filteredDepts = filter === "All"
+    ? hospitalData.departments
     : hospitalData.departments.filter(d => d.category === filter);
 
   const container = {
@@ -37,7 +38,7 @@ export default function DepartmentsShowcase() {
           <span className="section-subtitle">Excellence in Care</span>
           <h2 className="section-title">Specialized Departments</h2>
           <p className="section-description">
-            Experience world-class medical expertise across our boutique facilities, 
+            Experience world-class medical expertise across our boutique facilities,
             designed for your comfort and rapid recovery.
           </p>
         </div>
@@ -53,8 +54,8 @@ export default function DepartmentsShowcase() {
           >
             {cat}
             {filter === cat && (
-              <motion.div 
-                layoutId="activeTab" 
+              <motion.div
+                layoutId="activeTab"
                 className="active-indicator"
               />
             )}
@@ -62,7 +63,7 @@ export default function DepartmentsShowcase() {
         ))}
       </div>
 
-      <motion.div 
+      <motion.div
         layout
         className="dept-grid"
         variants={container}
@@ -73,11 +74,11 @@ export default function DepartmentsShowcase() {
         <AnimatePresence mode="popLayout">
           {filteredDepts.map((dept) => {
             const Icon = Icons[dept.icon] || Icons.Activity;
-            
+
             return (
-              <motion.div 
+              <motion.div
                 layout
-                variants={item} 
+                variants={item}
                 initial="hidden"
                 animate="show"
                 exit="exit"
@@ -90,18 +91,18 @@ export default function DepartmentsShowcase() {
                       <div className="dept-card-tag">{dept.category}</div>
                       <div className="dept-card-overlay"></div>
                     </div>
-                    
+
                     <div className="dept-card-content">
-                      <div 
+                      <div
                         className="dept-card-icon"
                         style={{ background: dept.color, color: "#1e40af" }}
                       >
                         <Icon size={24} />
                       </div>
-                      
+
                       <h3>{dept.title}</h3>
                       <p>{dept.description}</p>
-                      
+
                       <div className="dept-card-footer">
                         <span className="view-more-text">Explore Procedures</span>
                         <Icons.ChevronRight size={18} className="arrow-icon" />

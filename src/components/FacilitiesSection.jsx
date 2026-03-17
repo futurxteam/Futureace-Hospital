@@ -56,7 +56,6 @@ export default function FacilitiesSection() {
                     </span>
                     <span className="facility-arrow">↗</span>
                   </div>
-                  <div className="facility-line" />
                 </div>
               );
             })}

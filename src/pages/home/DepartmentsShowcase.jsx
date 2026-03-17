@@ -20,15 +20,31 @@ export default function DepartmentsShowcase() {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.15,
       },
     },
   };
 
   const item = {
-    hidden: { opacity: 0, scale: 0.9, y: 20 },
-    show: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-    exit: { opacity: 0, scale: 0.9, transition: { duration: 0.2 } }
+    hidden: { opacity: 0, scale: 0.95, y: 30 },
+    show: { 
+      opacity: 1, 
+      scale: 1, 
+      y: 0, 
+      transition: { 
+        duration: 0.8, 
+        ease: [0.22, 1, 0.36, 1] 
+      } 
+    },
+    exit: { 
+      opacity: 0, 
+      scale: 0.95, 
+      y: -10,
+      transition: { 
+        duration: 0.4,
+        ease: [0.22, 1, 0.36, 1]
+      } 
+    }
   };
 
   return (

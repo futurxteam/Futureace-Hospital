@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import SectionHeader from "../components/SectionHeader";
 import FacilitiesSection from "../components/FacilitiesSection";
 import DoctorsSection from "../components/DoctorsSection";
+import AppointmentForm from "../components/AppoinmentForm";
 
 const Home = () => {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
@@ -55,16 +56,17 @@ const Home = () => {
 
         {/* Background slider */}
         <div className="hero-bg-wrapper">
-          {HERO_IMAGES.map((img, index) => (
+          <AnimatePresence>
             <motion.div
-              key={index}
+              key={heroIndex}
               className="hero-bg-slide"
-              style={{ backgroundImage: `url(${img})` }}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: index === heroIndex ? 1 : 0 }}
-              transition={{ duration: 1.2 }}
+              style={{ backgroundImage: `url(${HERO_IMAGES[heroIndex]})` }}
+              initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
             />
-          ))}
+          </AnimatePresence>
         </div>
 
         {/* Dark overlay */}
@@ -194,26 +196,7 @@ const Home = () => {
               <div className="contact-mini-form">
                 <SectionHeader subtitle="Contact Us" align="left" title="Book Appointment" />
 
-                <form>
-                  <div className="row">
-                    <input type="text" placeholder="Your Name" />
-                    <input type="email" placeholder="Your Email" />
-                  </div>
-
-                  <div className="row">
-                    <input type="tel" placeholder="Your Mobile Number" />
-                    <input type="tel" placeholder="Your Alternative Number" />
-                  </div>
-
-                  <textarea placeholder="Write your message"></textarea>
-
-                  <Link to="/contact-us" className="cta-eldiora">
-                    <span className="cta-label">Contact Us</span>
-                    <span className="cta-dot">
-                      <span className="cta-arrow">↗</span>
-                    </span>
-                  </Link>
-                </form>
+                <AppointmentForm />
               </div>
             </Reveal>
 

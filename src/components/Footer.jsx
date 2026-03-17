@@ -11,9 +11,11 @@ const Footer = () => {
                             Futureace<span className="text-purple">.</span>
                         </h2>
                         <p className="text-gray" style={{ lineHeight: 1.6 }}>
-                            Banjara Hills, Hyderabad.<br />
-                            +91 123 456 7890<br />
-                            care@futureacehospital.com
+                            B, C, D, F Ground, 1st Floor, 37/3712, Mamson Royale,<br />
+                            Near Lulu Mall, Chakkaraparambu Junction, Edapally,<br />
+                            Ernakulam-682024, Kerala<br />
+                            Phone: 0484 273 5600<br />
+                            Email: hello@futureacehospital.com
                         </p>
                     </div>
 

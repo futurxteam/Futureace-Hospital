@@ -1,5 +1,6 @@
 import "./AppointmentSection.css";
-import { Link, useLocation } from "react-router-dom";
+import AppointmentForm from "./AppoinmentForm";
+
 export default function AppointmentSection() {
   return (
     <div className="contact-page">
@@ -7,13 +8,41 @@ export default function AppointmentSection() {
       {/* ================= CONTACT HERO ================= */}
       <section
         className="contact-hero"
-        style={{ backgroundImage: "url(/contact.jpg)" }}   // or contact.jpeg if you add later
+        style={{ backgroundImage: "url(/contact.jpg)" }}
       >
         <div className="contact-hero-overlay" />
 
         <div className="contact-hero-content">
           <h1>Book an Appointment</h1>
           <p>We’re here to help you with world-class care and personal attention.</p>
+        </div>
+      </section>
+
+      {/* ================= CONTACT INFO CARDS ================= */}
+      <section className="contact-info-section">
+        <div className="container info-cards-grid">
+
+          <div className="info-card">
+            <div className="info-card-icon">📞</div>
+            <h3>Call Us</h3>
+            <p>0484 273 5600</p>
+          </div>
+
+          <div className="info-card">
+            <div className="info-card-icon">✉️</div>
+            <h3>Email Us</h3>
+            <p>hello@futureacehospital.com</p>
+          </div>
+
+          <div className="info-card">
+            <div className="info-card-icon">📍</div>
+            <h3>Visit Us</h3>
+            <p>
+              B, C, D, F Ground, 1st Floor, 37/3712, Mamson Royale, Near Lulu Mall,
+              Chakkaraparambu Junction, Edapally, Ernakulam-682024, Kerala
+            </p>
+          </div>
+
         </div>
       </section>
 
@@ -25,35 +54,16 @@ export default function AppointmentSection() {
           <div className="contact-mini-form">
             <div className="contact-mini-tag">CONTACT US</div>
             <h2>Book Appointment</h2>
-
-            <form>
-              <div className="row">
-                <input type="text" placeholder="Your Name" />
-                <input type="email" placeholder="Your Email" />
-              </div>
-
-              <div className="row">
-                <input type="tel" placeholder="Your Mobile Number" />
-                <input type="tel" placeholder="Your Alternative Number" />
-              </div>
-
-              <textarea placeholder="Write your message"></textarea>
-
-              <Link to="/contact-us" className="cta-eldiora">
-                <span className="cta-label">Contact Us</span>
-                <span className="cta-dot">
-                  <span className="cta-arrow">↗</span>
-                </span>
-              </Link>
-            </form>
+            <AppointmentForm />
           </div>
 
           {/* RIGHT MAP */}
           <div className="contact-mini-map">
             <iframe
-              src="https://www.google.com/maps?q=kochi&output=embed"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.176313219463!2d76.3150259747936!3d9.99820719010646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d853b057867%3A0xc6edfff3f1d3c52e!2sFutureace%20Hospital!5e0!3m2!1sen!2sin!4v1709630000000!5m2!1sen!2sin"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
+              title="Futureace Hospital Location"
             ></iframe>
           </div>
 

@@ -3,9 +3,9 @@ export const hospitalData = {
     tagline: "South India's First Boutique Hospital",
     description: "Redefining healthcare with boutique, white-glove service. We are a patient-first hospital that treats you like family, not a transaction.",
     contact: {
-        phone: "+91 123 456 7890",
-        email: "care@futureacehospital.com",
-        address: "Banjara Hills, Hyderabad, Telangana",
+        phone: "0484 273 5600",
+        email: "hello@futureacehospital.com",
+        address: "B, C, D, F Ground, 1st Floor, 37/3712, Mamson Royale, Near Lulu Mall, Chakkaraparambu Junction, Edapally, Ernakulam-682024, Kerala",
     },
     departments: [
         {

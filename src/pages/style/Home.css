@@ -508,98 +508,99 @@
 /* Each row */
 .facility-row {
   position: relative;
-  padding: 26px 0;
+  padding: 24px 30px;
+  margin-bottom: 20px;
   cursor: pointer;
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid rgba(15, 23, 42, 0.04);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.2, 0, 0, 1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-/* Replace the existing facility-line styles with this */
-.facility-line {
-  height: 2px;
-  width: 100%;
-  background: #d1d5db;
-  margin-top: 24px;
-  position: relative;
-  /* Add this */
-  overflow: hidden;
-  /* Add this */
+.facility-row:hover,
+.facility-row.active {
+  transform: translateX(10px);
+  background: #ffffff;
+  border-color: rgba(14, 165, 233, 0.2);
+  box-shadow: 0 15px 40px rgba(14, 165, 233, 0.08);
 }
 
-.facility-line::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background: #0ea5e9;
-  transition: width 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-  /* Slower + smooth easing */
-  z-index: 1;
-}
-
-/* Hover / Active animation */
-.facility-row:hover .facility-line::before,
-.facility-row.active .facility-line::before {
-  width: 100%;
-}
-
-/* Keep the background transition for non-hovered state */
-.facility-row:hover .facility-line,
-.facility-row.active .facility-line {
-  background: transparent;
-  /* Changed from #0f172a */
+.facility-row.active {
+  border-left: 6px solid #0ea5e9;
+  padding-left: 24px;
 }
 
 /* Row content */
 .facility-left {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 20px;
 }
 
 .facility-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: #f1f5f9;
-
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: #f8fafc;
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #64748b;
+  transition: all 0.4s ease;
+}
 
-  color: #0f172a;
+.facility-row:hover .facility-icon,
+.facility-row.active .facility-icon {
+  background: #eff6ff;
+  color: #0ea5e9;
+  transform: scale(1.05);
 }
 
 .facility-left h4 {
   font-size: 22px;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0;
+  color: #0f172a;
+  transition: color 0.4s ease;
+}
+
+.facility-row.active .facility-left h4 {
+  color: #0ea5e9;
 }
 
 /* Right side */
 .facility-right {
-  position: absolute;
-  right: 0;
-  top: 26px;
-
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
 }
 
 .facility-index {
-  font-weight: 600;
-  color: #64748b;
+  font-weight: 700;
+  color: #cbd5e1;
+  font-size: 1.1rem;
+  transition: color 0.4s ease;
+}
+
+.facility-row.active .facility-index {
+  color: #0ea5e9;
 }
 
 .facility-arrow {
-  font-size: 20px;
-  transition: transform 0.3s ease;
+  font-size: 24px;
+  color: #94a3b8;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Hover arrow move */
-.facility-row:hover .facility-arrow {
-  transform: translateX(4px) translateY(-4px);
+.facility-row:hover .facility-arrow,
+.facility-row.active .facility-arrow {
+  color: #0ea5e9;
+  transform: translateX(6px) translateY(-6px);
 }
 
 /* ===============================
@@ -1081,13 +1082,35 @@
 }
 
 /* LEFT IMAGE */
+.testimonial-image {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.testimonial-image::before {
+  content: '';
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: #eff6ff;
+  border-radius: 50%;
+  z-index: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .testimonial-image img {
   width: 100%;
-  max-width: 520px;
+  max-width: 260px;
   aspect-ratio: 4 / 5;
   object-fit: cover;
-  border-radius: 28px;
-  box-shadow: 0 40px 100px rgba(15, 23, 42, 0.1);
+  border-radius: 20px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15);
+  position: relative;
+  z-index: 1;
 }
 
 /* RIGHT CONTENT */
@@ -1106,26 +1129,27 @@
 /* Quote box */
 .testimonial-quote-box {
   margin-top: 30px;
-  background: #f8fafc;
+  background: #ffffff;
   padding: 40px;
-  border-radius: 24px;
-  border: 1px solid rgba(14, 165, 233, 0.1);
+  border-radius: 20px;
+  border: 1px solid rgba(15, 23, 42, 0.05);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
   position: relative;
 }
 
 .testimonial-quote-box::before {
   content: "“";
   position: absolute;
-  top: -10px;
+  top: 10px;
   left: 20px;
   font-size: 80px;
-  color: rgba(14, 165, 233, 0.2);
-  font-family: serif;
+  color: rgba(14, 165, 233, 0.15);
+  font-family: Georgia, serif;
   line-height: 1;
 }
 
 .testimonial-quote-text {
-  font-size: 18px;
+  font-size: 19px;
   line-height: 1.7;
   color: #334155;
   margin-bottom: 24px;

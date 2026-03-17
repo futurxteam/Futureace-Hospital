@@ -25,7 +25,11 @@ return () => window.removeEventListener("scroll", onScroll);
 }, []);
   const isHome = location.pathname === "/";
   const isAbout = location.pathname === "/about-us";
-  const shouldBeTransparent = (isHome || isAbout) && !scrolled;
+  const isSpecialities = location.pathname === "/specialities";
+  const isDoctors = location.pathname === "/doctors";
+  const isContact = location.pathname === "/contact-us";
+  
+  const shouldBeTransparent = (isHome || isAbout || isSpecialities || isDoctors || isContact) && !scrolled;
 
   return (
     <>

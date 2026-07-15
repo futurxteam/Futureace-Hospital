@@ -41,15 +41,25 @@ export default function DoctorsSection() {
             <motion.div
               key={doctor.id || idx}
               className="doctor-card-v2"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.05 }}
+              transition={{ 
+                delay: idx * 0.04, 
+                duration: 0.55, 
+                ease: [0.16, 1, 0.3, 1] 
+              }}
             >
               <div className="doctor-card-v2-layout">
                 {/* Image */}
                 <div className="doctor-card-v2-img">
-                  <img src={doctor.image} alt={doctor.name} />
+                  {doctor.image ? (
+                    <img src={doctor.image} alt={doctor.name} />
+                  ) : (
+                    <div className="doctor-image-placeholder">
+                      <User size={48} />
+                    </div>
+                  )}
                 </div>
 
                 {/* Content */}

@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { hospitalData } from "../data/hospitalData";
 import { Award, BookOpen, User } from "lucide-react";
 
@@ -16,7 +17,7 @@ const Doctors = () => {
           width: "100%",
           height: "60vh",
           minHeight: "420px",
-          backgroundImage: "url(/doctors.jpg)",
+          backgroundImage: "url(/doctors.webp)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           display: "flex",
@@ -102,26 +103,34 @@ const Doctors = () => {
                   }}
                 >
                   {/* IMAGE */}
-                  <div
-                    style={{
-                      width: isMobile ? "140px" : "120px",
-                      height: isMobile ? "140px" : "120px",
-                      borderRadius: "20px",
-                      overflow: "hidden",
-                      flexShrink: 0,
-                      boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
-                    }}
-                  >
-                    <img
-                      src={doctor.image}
-                      alt={doctor.name}
+                    <div
                       style={{
-                        width: "100%",
-                        height: "100%",
-                        objectFit: "cover",
+                        width: isMobile ? "140px" : "120px",
+                        height: isMobile ? "140px" : "120px",
+                        borderRadius: "20px",
+                        overflow: "hidden",
+                        flexShrink: 0,
+                        boxShadow: "0 8px 20px rgba(0,0,0,0.15)",
+                        background: "#f1f5f9",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                       }}
-                    />
-                  </div>
+                    >
+                      {doctor.image ? (
+                        <img
+                          src={doctor.image}
+                          alt={doctor.name}
+                          style={{
+                            width: "100%",
+                            height: "100%",
+                            objectFit: "cover",
+                          }}
+                        />
+                      ) : (
+                        <User size={isMobile ? 60 : 48} color="#94a3b8" />
+                      )}
+                    </div>
 
                   {/* CONTENT */}
                   <div style={{ flex: 1, width: "100%" }}>
@@ -157,24 +166,31 @@ const Doctors = () => {
                       </div>
 
                       {/* BUTTON */}
-                      <button
+                      <Link
+                        to="/contact-us"
                         style={{
+                          textDecoration: "none",
                           alignSelf: isMobile ? "flex-end" : "flex-start",
-                          padding: "6px 16px",
-                          borderRadius: "999px",
-                          border: "none",
-                          minWidth: "72px",
-                          background: "#2563eb",
-                          color: "white",
-                          fontWeight: 600,
-                          cursor: "pointer",
-                          whiteSpace: "nowrap",
-                          flexShrink: 0,
-                          boxShadow: "0 6px 16px rgba(37,99,235,0.35)",
                         }}
                       >
-                        Book
-                      </button>
+                        <button
+                          style={{
+                            padding: "6px 16px",
+                            borderRadius: "999px",
+                            border: "none",
+                            minWidth: "72px",
+                            background: "#2563eb",
+                            color: "white",
+                            fontWeight: 600,
+                            cursor: "pointer",
+                            whiteSpace: "nowrap",
+                            flexShrink: 0,
+                            boxShadow: "0 6px 16px rgba(37,99,235,0.35)",
+                          }}
+                        >
+                          Book
+                        </button>
+                      </Link>
                     </div>
 
                     {/* BIO */}

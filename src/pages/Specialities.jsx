@@ -12,7 +12,7 @@ export default function Specialities() {
           width: "100%",
           height: "60vh",
           minHeight: "420px",
-          backgroundImage: "url(/dept.jpg)",
+          backgroundImage: "url(/dept.webp)",
           backgroundSize: "cover",
           backgroundPosition: "center",
           display: "flex",

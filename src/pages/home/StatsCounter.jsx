@@ -11,23 +11,25 @@ function Counter({ value, suffix = "" }) {
   useEffect(() => {
     if (!isInView) return;
 
-    let start = 0;
-    const duration = 1200;
-    const stepTime = 20;
-    const steps = duration / stepTime;
-    const increment = value / steps;
+    const duration = 1500;
+    const startTime = performance.now();
 
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= value) {
-        setCount(value);
-        clearInterval(timer);
+    const easeOutQuart = (t) => 1 - Math.pow(1 - t, 4);
+
+    const animate = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easedProgress = easeOutQuart(progress);
+      setCount(Math.floor(easedProgress * value));
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
       } else {
-        setCount(Math.floor(start));
+        setCount(value);
       }
-    }, stepTime);
+    };
 
-    return () => clearInterval(timer);
+    requestAnimationFrame(animate);
   }, [isInView, value]);
 
   return (
@@ -40,10 +42,9 @@ function Counter({ value, suffix = "" }) {
 
 export default function StatsCounter() {
   const stats = [
-    { label: "Specialist Doctors", value: 50, suffix: "+", icon: UserRound, color: "#e0f2fe" },
+    { label: "Specialist Doctors", value: 100, suffix: "+", icon: UserRound, color: "#e0f2fe" },
     { label: "Happy Patients", value: 58000, suffix: "+", icon: Users, color: "#f0fdf4" },
-    { label: "Premium Beds", value: 100, suffix: "+", icon: Bed, color: "#fef2f2" },
-    { label: "Excellence Awards", value: 15, suffix: "+", icon: Award, color: "#fff7ed" },
+    { label: "Surgeries Done", value: 5000, suffix: "+", icon: Award, color: "#fef2f2" },
   ];
 
   return (
@@ -55,13 +56,17 @@ export default function StatsCounter() {
             <motion.div
               key={i}
               className="stat-card"
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              transition={{
+                delay: i * 0.08,
+                duration: 0.6,
+                ease: [0.16, 1, 0.3, 1]
+              }}
             >
-              <div 
-                className="stat-icon-box" 
+              <div
+                className="stat-icon-box"
                 style={{ backgroundColor: stat.color }}
               >
                 <IconComp size={24} className="stat-icon" />

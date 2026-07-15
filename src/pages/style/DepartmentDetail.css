@@ -3,7 +3,7 @@
 }
 
 .dept-detail-hero {
-  padding: 180px 0 80px;
+  padding: 180px 24px 80px;
   margin-bottom: 60px;
 }
 
@@ -109,7 +109,7 @@
 
 /* Intro Section */
 .dept-intro-section {
-  padding: 100px 0;
+  padding: 100px 24px;
 }
 
 .dept-intro-grid {
@@ -329,6 +329,7 @@
 /* CTA Section */
 .dept-cta-section {
   margin-top: 100px;
+  padding: 0 24px;
 }
 
 .dept-cta-card {
@@ -373,6 +374,10 @@
 
 /* Responsive */
 @media (max-width: 900px) {
+  .dept-detail-hero {
+    padding: 120px 16px 60px;
+  }
+
   .dept-hero-content {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -381,23 +386,77 @@
   
   .dept-hero-text {
     order: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
   .dept-hero-image {
     order: 1;
+    max-width: 500px;
+    margin: 0 auto;
   }
   
   .dept-title-wrap {
     justify-content: center;
     flex-direction: column;
+    text-align: center;
+    gap: 15px;
   }
   
   .back-link {
     justify-content: center;
+    margin-bottom: 20px;
   }
   
   .dept-hero-text h1 {
     font-size: 2.5rem;
+  }
+
+  .patient-thought-box {
+    margin: 30px auto 0;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .dept-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .intro-text-wrap h2 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .service-cat-header {
+    padding: 20px;
+    gap: 10px;
+  }
+
+  .header-main {
+    gap: 15px;
+  }
+
+  .cat-number {
+    font-size: 1.8rem;
+  }
+
+  .service-cat-header h3 {
+    font-size: 1.2rem;
+  }
+
+  .cat-body-content {
+    padding: 0 15px 30px 15px;
+  }
+
+  .cat-story-box {
+    padding: 15px;
+  }
+
+  .procedures-detail-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
   
   .dept-cta-card {
@@ -407,4 +466,25 @@
   .dept-cta-card h2 {
     font-size: 1.8rem;
   }
+
+  .btn-cta-large {
+    width: 100%;
+    padding: 15px 20px;
+    font-size: 1rem;
+  }
 }
+
+@media (max-width: 480px) {
+  .dept-hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .dept-tagline {
+    font-size: 1.1rem;
+  }
+
+  .quote-text {
+    font-size: 1.1rem;
+  }
+}
+

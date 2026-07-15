@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import "./Header.css";
 
-const NAV_ITEMS = ["Home", "About Us", "Specialities", "Doctors", "Contact Us"];
+const NAV_ITEMS = ["Home", "About Us", "Specialities", "Doctors", "Consultation", "Contact Us"];
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,20 +23,22 @@ setScrolled(window.scrollY > 60);
 window.addEventListener("scroll", onScroll);
 return () => window.removeEventListener("scroll", onScroll);
 }, []);
-  const isHome = location.pathname === "/";
-  const isAbout = location.pathname === "/about-us";
-  const isSpecialities = location.pathname === "/specialities";
-  const isDoctors = location.pathname === "/doctors";
-  const isContact = location.pathname === "/contact-us";
+  const isHome = location.pathname === '/';
+  const isAbout = location.pathname === '/about-us';
+  const isSpecialities = location.pathname === '/specialities';
+  const isDoctors = location.pathname === '/doctors';
+  const isContact = location.pathname === '/contact-us';
+  const isConsultation = location.pathname === '/consultation';
   
-  const shouldBeTransparent = (isHome || isAbout || isSpecialities || isDoctors || isContact) && !scrolled;
+  const shouldBeTransparent = (isHome || isAbout || isSpecialities || isDoctors || isContact || isConsultation) && !scrolled;
 
   return (
     <>
       {/* ================= FLOATING HEADER ================= */}
       <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         className={`site-header ${shouldBeTransparent ? "transparent" : "scrolled"}`}
       >
         <div className="header-bar">
@@ -52,7 +54,11 @@ return () => window.removeEventListener("scroll", onScroll);
             {NAV_ITEMS.map((item) => (
               <Link
                 key={item}
-                to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
+                to={
+                  item === 'Home'
+                    ? '/'
+                    : `/${item.toLowerCase().replace(/ /g, '-')}`
+                }
               >
                 {item}
               </Link>
@@ -97,7 +103,7 @@ return () => window.removeEventListener("scroll", onScroll);
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+              transition={{ type: "spring", damping: 28, stiffness: 280, mass: 0.8 }}
             >
               <div className="mobile-drawer-header">
                 <button onClick={() => setIsOpen(false)}>
@@ -109,7 +115,7 @@ return () => window.removeEventListener("scroll", onScroll);
                 {NAV_ITEMS.map((item) => (
                   <Link
                     key={item}
-                    to={item === "Home" ? "/" : `/${item.toLowerCase().replace(" ", "-")}`}
+                    to={item === 'Home' ? '/' : `/${item.toLowerCase().replace(/ /g, '-')}`}
                     onClick={() => setIsOpen(false)}
                   >
                     {item}

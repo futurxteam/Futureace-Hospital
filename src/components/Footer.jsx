@@ -11,11 +11,11 @@ const Footer = () => {
                             Futureace<span className="text-purple">.</span>
                         </h2>
                         <p className="text-gray" style={{ lineHeight: 1.6 }}>
-                            B, C, D, F Ground, 1st Floor, 37/3712, Mamson Royale,<br />
-                            Near Lulu Mall, Chakkaraparambu Junction, Edapally,<br />
-                            Ernakulam-682024, Kerala<br />
-                            Phone: 0484 273 5600<br />
-                            Email: hello@futureacehospital.com
+                            B, C, D, F Ground, 1st Floor, 37/3712, Mamson Royale, Near Lulu Mall,<br />
+                            Nethaji Nagar, Edapally, Ernakulam-682024, Kerala<br />
+                            Phone: 484-273-5600<br />
+                            Mobile: 8589-003-330<br />
+                            Email: console@futureacehospital.com
                         </p>
                     </div>
 

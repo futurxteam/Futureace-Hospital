@@ -9,7 +9,7 @@ export default function About() {
       {/* ================= ABOUT HERO ================= */}
       <section
         className="about-hero"
-        style={{ backgroundImage: "url(/about.jpg)" }}
+        style={{ backgroundImage: "url(/about.webp)" }}
       >
         <div className="about-hero-overlay" />
 

@@ -1,11 +1,10 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import * as Icons from "lucide-react";
 import { hospitalData } from "../../data/hospitalData";
 import "../style/DepartmentsShowcase.css";
 import Reveal from "../../components/Reveal";
-import { useNavigate } from "react-router-dom";
 
 export default function DepartmentsShowcase() {
   const [filter, setFilter] = useState("All");
@@ -15,37 +14,36 @@ export default function DepartmentsShowcase() {
     ? hospitalData.departments
     : hospitalData.departments.filter(d => d.category === filter);
 
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
+  /* 
+   * Premium stagger animation — uses opacity + translateY only
+   * Avoids scale transforms which cause layout thrashing in grids
+   */
   const item = {
-    hidden: { opacity: 0, scale: 0.95, y: 30 },
+    hidden: { 
+      opacity: 0, 
+      y: 24,
+    },
     show: { 
       opacity: 1, 
-      scale: 1, 
-      y: 0, 
+      y: 0,
       transition: { 
-        duration: 0.8, 
-        ease: [0.22, 1, 0.36, 1] 
+        duration: 0.5, 
+        ease: [0.16, 1, 0.3, 1],
       } 
     },
     exit: { 
       opacity: 0, 
-      scale: 0.95, 
-      y: -10,
+      y: -12,
       transition: { 
-        duration: 0.4,
-        ease: [0.22, 1, 0.36, 1]
+        duration: 0.25,
+        ease: [0.4, 0, 1, 1],
       } 
     }
   };
+
+  const handleFilter = useCallback((cat) => {
+    setFilter(cat);
+  }, []);
 
   return (
     <section className="dept-grid-section container">
@@ -66,71 +64,87 @@ export default function DepartmentsShowcase() {
           <button
             key={cat}
             className={`filter-btn ${filter === cat ? "active" : ""}`}
-            onClick={() => setFilter(cat)}
+            onClick={() => handleFilter(cat)}
           >
             {cat}
             {filter === cat && (
               <motion.div
                 layoutId="activeTab"
                 className="active-indicator"
+                transition={{ 
+                  type: "spring", 
+                  stiffness: 400, 
+                  damping: 35,
+                  mass: 0.8,
+                }}
               />
             )}
           </button>
         ))}
       </div>
 
-      <motion.div
-        layout
-        className="dept-grid"
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, margin: "-100px" }}
-      >
-        <AnimatePresence mode="popLayout">
-          {filteredDepts.map((dept) => {
-            const Icon = Icons[dept.icon] || Icons.Activity;
+      <div className="dept-grid">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={filter}
+            className="dept-grid-inner"
+            initial="hidden"
+            animate="show"
+            exit="exit"
+            transition={{ staggerChildren: 0.06 }}
+            variants={{
+              hidden: { opacity: 0 },
+              show: { 
+                opacity: 1, 
+                transition: { staggerChildren: 0.06 } 
+              },
+              exit: { 
+                opacity: 0,
+                transition: { staggerChildren: 0.03, staggerDirection: -1 } 
+              },
+            }}
+          >
+            {filteredDepts.map((dept) => {
+              const Icon = Icons[dept.icon] || Icons.Activity;
 
-            return (
-              <motion.div
-                layout
-                variants={item}
-                initial="hidden"
-                animate="show"
-                exit="exit"
-                key={dept.id}
-              >
-                <Link to={`/department/${dept.id}`} className="dept-card">
-                  <div className="dept-card-inner">
-                    <div className="dept-card-image">
-                      <img src={dept.image} alt={dept.title} />
-                      <div className="dept-card-tag">{dept.category}</div>
-                      <div className="dept-card-overlay"></div>
-                    </div>
-
-                    <div className="dept-card-content">
-                      <div
-                        className="dept-card-icon"
-                        style={{ background: dept.color, color: "#1e40af" }}
-                      >
-                        <Icon size={24} />
+              return (
+                <motion.div
+                  variants={item}
+                  key={dept.id}
+                  style={{ willChange: "transform, opacity" }}
+                >
+                  <Link to={`/department/${dept.id}`} className="dept-card">
+                    <div className="dept-card-inner">
+                      <div className="dept-card-image">
+                        <img src={dept.image} alt={dept.title} loading="lazy" />
+                        <div className="dept-card-tag">{dept.category}</div>
+                        <div className="dept-card-overlay"></div>
                       </div>
 
-                      <h3>{dept.title}</h3>
-                      <p>{dept.description}</p>
+                      <div className="dept-card-content">
+                        <div
+                          className="dept-card-icon"
+                          style={{ background: dept.color, color: "#1e40af" }}
+                        >
+                          <Icon size={24} />
+                        </div>
 
-                      <div className="dept-card-footer">
-                        <span className="view-more-text">Explore Procedures</span>
-                        <Icons.ChevronRight size={18} className="arrow-icon" />
+                        <h3>{dept.title}</h3>
+                        <p>{dept.description}</p>
+
+                        <div className="dept-card-footer">
+                          <span className="view-more-text">Explore Procedures</span>
+                          <Icons.ChevronRight size={18} className="arrow-icon" />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Link>
-              </motion.div>
-            );
-          })}
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </motion.div>
         </AnimatePresence>
-      </motion.div>
+      </div>
     </section>
   );
 }

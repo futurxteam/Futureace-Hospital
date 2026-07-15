@@ -8,7 +8,7 @@ export default function AboutFutureace() {
         <div className="about-page">
 
             {/* Hero Section */}
-            <section className="about-hero" style={{ backgroundImage: "url(/about.jpg)" }}>
+            <section className="about-hero" style={{ backgroundImage: "url(/about.webp)" }}>
                 <div className="about-hero-overlay" />
                 <div className="container about-hero-container">
                     <Reveal>
@@ -29,12 +29,15 @@ export default function AboutFutureace() {
                 </Reveal>
 
                 <Reveal delay={0.2}>
-                    <p>
-                        Futureace is not a typical hospital. It is India’s first dedicated
-                        boutique surgical hub, NABH certified and founded on a simple promise:
-                        your time, trust, and comfort deserve as much respect as your health
-                        itself.
-                    </p>
+                    <div className="nabh-badge-wrapper">
+                        <img src="/nabh_certified.png" alt="NABH Accredited" className="nabh-logo" />
+                        <p>
+                            Futureace is not a typical hospital. It is India’s first dedicated
+                            boutique surgical hub, NABH certified and founded on a simple promise:
+                            your time, trust, and comfort deserve as much respect as your health
+                            itself.
+                        </p>
+                    </div>
                 </Reveal>
 
                 <Reveal delay={0.4}>

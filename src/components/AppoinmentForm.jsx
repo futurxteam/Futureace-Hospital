@@ -20,25 +20,20 @@ export default function AppointmentForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const subject = "Appointment Request - Futureace Hospital";
+        const { name, phone, message } = formData;
 
-        const body = `
-Name: ${formData.name}
-Email: ${formData.email}
-Mobile Number: ${formData.phone}
-Alternative Number: ${formData.altPhone}
+        // Basic Validation
+        if (!name.trim() || !phone.trim()) {
+            alert("Please provide both your name and mobile number.");
+            return;
+        }
 
-Message:
-${formData.message}
-`;
+        const whatsappNumber = "918589003330";
+        const text = `Hi, my name is ${name}. I would like to enquire about the hospital. ${message}`;
 
-        const gmailLink =
-            `https://mail.google.com/mail/?view=cm&fs=1` +
-            `&to=hello@futureacehospital.com` +
-            `&su=${encodeURIComponent(subject)}` +
-            `&body=${encodeURIComponent(body)}`;
+        const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
 
-        window.open(gmailLink, "_blank");
+        window.open(whatsappUrl, "_blank");
 
         setFormData({
             name: "",

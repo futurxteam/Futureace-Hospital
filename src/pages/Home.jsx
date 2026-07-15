@@ -16,27 +16,29 @@ import AppointmentForm from "../components/AppoinmentForm";
 const Home = () => {
   const [testimonialIndex, setTestimonialIndex] = useState(0);
   const [testimonialDirection, setTestimonialDirection] = useState(0);
-
-  const t = hospitalData.testimonials[testimonialIndex];
+  const testimonials = hospitalData.testimonials || [];
+  const t = testimonials[testimonialIndex];
 
   const nextTestimonial = () => {
+    if (testimonials.length === 0) return;
     setTestimonialDirection(1);
     setTestimonialIndex((prev) =>
-      (prev + 1) % hospitalData.testimonials.length
+      (prev + 1) % testimonials.length
     );
   };
 
   const prevTestimonial = () => {
+    if (testimonials.length === 0) return;
     setTestimonialDirection(-1);
     setTestimonialIndex((prev) =>
-      (prev - 1 + hospitalData.testimonials.length) % hospitalData.testimonials.length
+      (prev - 1 + testimonials.length) % testimonials.length
     );
   };
 
   const HERO_IMAGES = [
     "/banner1.jpg",
-    "/banner2.jpg",
-    "/banner3.jpg",
+    "/banner2.webp",
+    "/banner3.webp",
   ];
 
   const [heroIndex, setHeroIndex] = useState(0);
@@ -60,11 +62,11 @@ const Home = () => {
             <motion.div
               key={heroIndex}
               className="hero-bg-slide"
-              style={{ backgroundImage: `url(${HERO_IMAGES[heroIndex]})` }}
-              initial={{ opacity: 0, scale: 1.05 }}
+              style={{ backgroundImage: `url(${HERO_IMAGES[heroIndex]})`, willChange: "opacity, transform" }}
+              initial={{ opacity: 0, scale: 1.08 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 1.5, ease: "easeInOut" }}
+              exit={{ opacity: 0, scale: 1.02 }}
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             />
           </AnimatePresence>
         </div>
@@ -139,10 +141,10 @@ const Home = () => {
                     key={testimonialIndex}
                     src={t.image}
                     alt={t.name}
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 0.95 }}
-                    transition={{ duration: 0.4 }}
+                    initial={{ opacity: 0, scale: 0.92, filter: "blur(4px)" }}
+                    animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                    exit={{ opacity: 0, scale: 0.95, filter: "blur(2px)" }}
+                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                   />
                 </AnimatePresence>
               </div>
@@ -153,10 +155,10 @@ const Home = () => {
                   <motion.div
                     key={testimonialIndex}
                     custom={testimonialDirection}
-                    initial={{ x: testimonialDirection === 1 ? 40 : -40, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    exit={{ x: testimonialDirection === -1 ? 40 : -40, opacity: 0 }}
-                    transition={{ duration: 0.35, ease: "easeInOut" }}
+                    initial={{ y: testimonialDirection === 1 ? 20 : -20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: testimonialDirection === -1 ? 20 : -20, opacity: 0 }}
+                    transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
                   >
                     <h3 className="testimonial-heading">
                       {t.headline || "Around-the-clock care delivered with compassion"}
@@ -187,33 +189,38 @@ const Home = () => {
       </Reveal>
 
       {/* ================= CONTACT ================= */}
-      <Reveal direction="up" delay={0.1}>
-        <section className="contact-mini">
-          <div className="container contact-mini-grid">
+      <section className="contact-mini">
+        <div className="container contact-mini-grid">
 
-            {/* LEFT FORM */}
-            <Reveal direction="left" delay={0.2}>
-              <div className="contact-mini-form">
-                <SectionHeader subtitle="Contact Us" align="left" title="Book Appointment" />
+          {/* LEFT FORM */}
+          <div className="contact-mini-form">
+            <SectionHeader subtitle="Contact Us" align="left" title="Book Appointment" />
 
-                <AppointmentForm />
-              </div>
-            </Reveal>
-
-            {/* RIGHT MAP */}
-            <Reveal direction="right" delay={0.3}>
-              <div className="contact-mini-map">
-                <iframe
-                  src="https://www.google.com/maps?q=kochi&output=embed"
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                ></iframe>
-              </div>
-            </Reveal>
-
+            <AppointmentForm />
           </div>
-        </section>
-      </Reveal>
+
+          {/* RIGHT MAP */}
+          <div className="contact-mini-map">
+            <a 
+              href="https://www.google.com/maps?q=10%C2%B001%2750.3%22N+76%C2%B018%2716.8%22E" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="map-overlay-link"
+              title="Open in Google Maps"
+            >
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.053355027814!2d76.30248!3d10.030639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTAnMDEnNTAuMyJOIDc2wrAxOCcxNi44IkU!5e0!3m2!1sen!2sin!4v1712740000000!5m2!1sen!2sin"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Futureace Hospital Location"
+                style={{ pointerEvents: 'none' }}
+              ></iframe>
+              <div className="map-click-prompt">Click to view on Google Maps</div>
+            </a>
+          </div>
+
+        </div>
+      </section>
     </div>
   );
 };

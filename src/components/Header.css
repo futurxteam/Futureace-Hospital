@@ -19,7 +19,7 @@
 
   box-shadow: 0 4px 20px rgba(0,0,0,0.06);
   border-bottom: 1px solid rgba(0, 180, 216, 0.1);
-  animation: slideDown 0.6s ease-out;
+  animation: slideDown 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @keyframes slideDown {
@@ -56,12 +56,12 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
-  flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .header-logo:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
   filter: drop-shadow(0 4px 12px rgba(0, 180, 216, 0.2));
 }
 
@@ -94,7 +94,7 @@
   font-weight: 500;
   color: #0f172a;
   position: relative;
-  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   padding-bottom: 4px;
 }
 
@@ -106,7 +106,7 @@
   width: 0;
   height: 2px;
   background: linear-gradient(90deg, #00b4d8, #0077b6);
-  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .header-nav a:hover {
@@ -134,7 +134,7 @@
   background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
   box-shadow: 0 6px 20px rgba(0, 180, 216, 0.3);
   
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
   flex-shrink: 0;
@@ -283,7 +283,9 @@
   right: 0;
   z-index: 9999;
   width: 100%;
-  transition: all 0.35s ease;
+  transition: background 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 /* TRANSPARENT STATE */

@@ -8,6 +8,11 @@ import Doctors from './pages/Doctors';
 import AboutUs from './components/AboutUs';
 import Specialities from './pages/Specialities';
 import DepartmentDetail from './pages/DepartmentDetail';
+import WhatsAppButton from './components/WhatsAppButton';
+import ScrollToTop from './components/ScrollToTop';
+import Consultation from './pages/Consultation';
+import ConsultationSuccess from './pages/ConsultationSuccess';
+
 // Simple placeholder for other pages
 const PagePlaceholder = ({ title }) => (
   <div className="container" style={{ paddingTop: '120px', minHeight: '60vh' }}>
@@ -21,6 +26,7 @@ const PagePlaceholder = ({ title }) => (
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="App">
         <Header />
         <Routes>
@@ -30,9 +36,11 @@ function App() {
           <Route path="/doctors" element={<Doctors />} />
           <Route path="/contact-us" element={<AppointmentSection />} />
           <Route path="/department/:id" element={<DepartmentDetail />} />
-         
+          <Route path="/consultation" element={<Consultation />} />
+          <Route path="/consultation-success" element={<ConsultationSuccess />} />
         </Routes>
         <Footer />
+        <WhatsAppButton />
       </div>
     </Router>
   );

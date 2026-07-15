@@ -3,9 +3,9 @@ export const hospitalData = {
     tagline: "South India's First Boutique Hospital",
     description: "Redefining healthcare with boutique, white-glove service. We are a patient-first hospital that treats you like family, not a transaction.",
     contact: {
-        phone: "0484 273 5600",
-        email: "hello@futureacehospital.com",
-        address: "B, C, D, F Ground, 1st Floor, 37/3712, Mamson Royale, Near Lulu Mall, Chakkaraparambu Junction, Edapally, Ernakulam-682024, Kerala",
+        phone: "484-273-5600",
+        email: "console@futureacehospital.com",
+        address: "B, C, D, F Ground, 1st Floor, 37/3712, Mamson Royale, Near Lulu Mall, Nethaji Nagar, Edapally, Ernakulam-682024, Kerala",
     },
     departments: [
         {
@@ -113,7 +113,7 @@ export const hospitalData = {
             ],
             icon: "Bone",
             color: "#E5F0FF",
-            image: "/ortho.jpg",
+            image: "/ortho.webp",
             serviceCategories: [
                 {
                     title: "The Joint Restoration Hub",
@@ -436,7 +436,7 @@ export const hospitalData = {
             ],
             icon: "Ear",
             color: "#FFE5F9",
-            image: "/ENT.jpg",
+            image: "/ENT.webp",
             serviceCategories: [
                 {
                     title: "The Sound Gallery",
@@ -469,6 +469,7 @@ export const hospitalData = {
                     subtitle: "Preserving the Person",
                     story: "When dealing with tumours of the thyroid or neck, we prioritise both clinical clearance and aesthetic preservation.",
                     procedures: [
+                        { name: "Endoscopic Thyroidectomy", detail: "Accessing the thyroid through the armpit or mouth, leaving your neck completely scar-free. Surgery that keeps your secret." },
                         { name: "Thyroid & Parotid Surgery", detail: "Expert removal of tumours with a focus on nerve preservation and minimal scarring." },
                         { name: "Head & Neck Tumour Surgeries", detail: "Complex, planned procedures including neck dissections performed with focused boutique attention." }
                     ]
@@ -550,7 +551,7 @@ export const hospitalData = {
             serviceCategories: [
                 {
                     title: "The 'Keyhole' Spine Gallery",
-                    subtitle: "Minimally Invasive Surgery (MISS)",
+                    subtitle: "Minimally Invasive Surgery (MIS)",
                     story: "Small incisions. Rapid recovery. Zero chaos. Thomas walked to the bathroom the evening of his surgery; the electric shock pain was gone.",
                     procedures: [
                         { name: "Targeted Relief", detail: "Addressing herniated discs or narrow spinal canals through tiny openings without disrupting surrounding healthy tissue." },
@@ -596,7 +597,7 @@ export const hospitalData = {
             ],
             icon: "Sparkle",
             color: "#FFF9E5",
-            image: "/cosmetology.jpg",
+            image: "/cosmetology.webp",
             serviceCategories: [
                 {
                     title: "The 'Refresh' Suite",
@@ -697,7 +698,7 @@ export const hospitalData = {
             ],
             icon: "Accessibility",
             color: "#E5FFF5",
-            image: "/physiotherapy.jpg",
+            image: "/physiotherapy.webp",
             serviceCategories: [
                 {
                     title: "The 'Comeback' Programme",
@@ -806,7 +807,7 @@ export const hospitalData = {
             ],
             icon: "Baby",
             color: "#F0E5FF",
-            image: "/Gynacology.jpg",
+            image: "/Gynacology.webp",
             serviceCategories: [
                 {
                     title: "Minimally Invasive Surgery",
@@ -835,12 +836,12 @@ export const hospitalData = {
                     ]
                 },
                 {
-                    title: "Life Stages: Menopause",
+                    title: " Life Stages: Adolescence to Menopause",
                     subtitle: "Gracious Transitions",
                     story: "You don't have to 'grin and bear it'. Management of hormonal and non-hormonal options for perimenopause and beyond.",
                     procedures: [
+                        { name: "Well-Woman Preventive", detail: "Routine exams, HPV vaccination, and cervical screening in a judgement-free zone." },
                         { name: "Menopause Management", detail: "Focused care for bone health, vaginal health, and quality of life during the transition." },
-                        { name: "Well-Woman Preventive", detail: "Routine exams, HPV vaccination, and cervical screening in a judgement-free zone." }
                     ]
                 }
             ]
@@ -871,63 +872,93 @@ export const hospitalData = {
     doctors: [
         {
             id: 1,
-            name: "Dr. Aravind Kumar",
-            specialty: "Orthopaedics",
-            image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=300&h=300",
-            bio: "Expert in robotic knee replacements with a focus on rapid recovery protocols.",
-            experience: "15+ Years",
-            qualification: "MBBS, MS (Ortho), Fellowship in Joint Replacement (USA)",
-            languages: "English, Hindi, Telugu"
+            name: "Dr. Ashna P A",
+            specialty: "Chief Dental Surgeon",
+            image: "/Doctors/ashna.jpg",
+            bio: "Maxillofacial Prosthodontist and Implantologist specialising in re-root canal treatments, implantology, and pediatric dentistry. Currently heads the dental department at Futureace Hospital.",
+            experience: "18+ Years",
+            qualification: "BDS, MDS (Prosthodontics & Implantology) – Farooqia Dental College, Amrita School of Dentistry",
+            languages: "English, Malayalam"
         },
         {
             id: 2,
-            name: "Dr. Sarah Joseph",
-            specialty: "Cosmetic Surgery",
-            image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?auto=format&fit=crop&q=80&w=300&h=300",
-            bio: "Specializing in facial aesthetics and reconstructive procedures with a natural approach.",
-            experience: "12+ Years",
-            qualification: "MBBS, MCh (Plastic Surgery)",
-            languages: "English, Hindi, Malayalam"
+            name: "Dr. Anand Sivadasan",
+            specialty: "Plastic & Cosmetic Surgery",
+            image: "/Doctors/anand.jpg",
+            bio: "International fellowship-trained cosmetic surgeon specialising in facial aesthetics, rhinoplasty, body contouring, and non-surgical rejuvenation. Founder of the Futureace Centre for Cosmetic Excellence (FACE).",
+            experience: "Senior Consultant",
+            qualification: "MBBS, DrNB (Plastic Surgery), MRCS (Edinburgh, UK) – Fellowships: Spain, Turkey, UK",
+            languages: "English, Malayalam"
         },
         {
             id: 3,
-            name: "Dr. Rajesh Menon",
-            specialty: "Neurology",
-            image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&q=80&w=300&h=300",
-            bio: "Pioneer in minimally invasive spine surgeries and complex neuro-interventions.",
-            experience: "18+ Years",
-            qualification: "MBBS, MD (General Medicine), DM (Neurology)",
-            languages: "English, Hindi, Tamil"
+            name: "Dr. Jerrin Jose Thomas",
+            specialty: "ENT & Facial Plastic Surgery",
+            image: "",
+            bio: "Distinguished ENT and Facial Plastic Surgeon with advanced training in Taiwan and the first fellow under the Facial Reconstructive and Cosmetic Surgery India Trust. Expert in rhinoplasty, FESS, and facial reconstruction.",
+            experience: "12+ Years",
+            qualification: "MBBS, MS (ENT), FAFPRS, FRFPS, FHBOT, FFPRS – Fellowship in Facial Plastic & Reconstructive Surgery (Taiwan)",
+            languages: "English, Hindi, Malayalam, Tamil"
         },
         {
             id: 4,
-            name: "Dr. Emily Chen",
-            specialty: "Dental Surgery",
-            image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=300&h=300",
-            bio: "Award-winning maxillofacial surgeon focused on patient comfort and aesthetic outcomes.",
-            experience: "10+ Years",
-            qualification: "BDS, MDS (Maxillofacial Surgery)",
-            languages: "English, Mandarin"
+            name: "Dr. Shaheem Shanavas",
+            specialty: "General & Laparoscopic Surgery",
+            image: "/Doctors/shanavas.jpg",
+            bio: "Skilled General Surgeon specialising in laparoscopic and open procedures including thyroidectomies, hernia repairs, gastrointestinal surgeries, diagnostic endoscopies, and trauma care.",
+            experience: "12+ Years",
+            qualification: "MBBS, MS, DNB (General Surgery), FMAS, FAGE – KMC Manipal, Calicut University",
+            languages: "English, Malayalam"
+        },
+        {
+            id: 5,
+            name: "Dr. Benzir Hussain",
+            specialty: "Psychiatry",
+            image: "/Doctors/benzir.jpg",
+            bio: "Distinguished Psychiatrist delivering personalized diagnosis and management strategies tailored to each patient's mental health needs, with a patient-centered approach to care.",
+            experience: "11+ Years",
+            qualification: "MBBS, MD (Psychiatry)",
+            languages: "English, Malayalam"
+        },
+        {
+            id: 6,
+            name: "Dr. Femi Abdulla",
+            specialty: "Psychiatry",
+            image: "/Doctors/femi.jpg",
+            bio: "Distinguished Psychiatrist delivering personalized diagnosis and management strategies tailored to each patient's mental health needs, with a patient-centered approach to care.",
+            experience: "11+ Years",
+            qualification: "MBBS, MD (Psychiatry)",
+            languages: "English, Malayalam"
         }
     ],
     testimonials: [
         {
             id: 1,
-            name: "Priya S.",
-            role: "Knee Replacement Patient",
-            image: "https://media.istockphoto.com/id/1739325597/photo/nurse-senior-woman-and-smile-with-comfort-holding-hands-or-support-in-nursing-home-for.jpg?s=612x612&w=0&k=20&c=BMCKzCUYgUGPlSugqpmKVJ3tNzeh0Sv_HjYcKOrKuKI=",
-            text: "The boutique feel made all the difference. It felt like a hotel, not a hospital. The doctors were incredibly supportive and the robotic surgery was painless and fast.",
+            name: "Sarah Jenkins",
+            role: "Entrepreneur",
+            image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=400",
+            headline: "Exceptional Boutique Experience",
+            text: "Futureace doesn't feel like a hospital. The level of care and personal attention I received during my surgery was comparable to a luxury hotel. Truly South India's first boutique hospital."
         },
         {
             id: 2,
-            name: "Ahmed K.",
-            role: "Spine Surgery Patient",
-            image: "https://images.rawpixel.com/image_800/czNmcy1wcml2YXRlL3Jhd3BpeGVsX2ltYWdlcy93ZWJzaXRlX2NvbnRlbnQvbHIvczc3LW1ja2luc2V5LTc2MTEtcG9tXzMuanBn.jpg",
-            text: "Incredible care by Dr. Aravind. The robotic surgery was seamless and the recovery time was much faster than expected.",
+            name: "Rajesh Kumar",
+            role: "Retired Professor",
+            image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=400",
+            headline: "Expert Orthopaedic Care",
+            text: "My knee replacement was handled with such precision. The physical therapy team is top-notch. I'm walking pain-free after years of struggle."
         },
+        {
+            id: 3,
+            name: "Anita Menon",
+            role: "Marketing Director",
+            image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=400",
+            headline: "Compassionate & Discreet",
+            text: "I appreciated the absolute privacy and discretion during my dermatological procedures. The staff is professional and the environment is incredibly calming."
+        }
     ]
-
 };
+
 export const statsData = [
     { label: "Doctors At Work", value: 500, suffix: "+" },
     { label: "Happy Patients", value: 58796, suffix: "+" },

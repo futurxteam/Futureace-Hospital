@@ -894,7 +894,7 @@ export const hospitalData = {
             id: 3,
             name: "Dr. Jerrin Jose Thomas",
             specialty: "ENT & Facial Plastic Surgery",
-            image: "",
+            image: "/Doctors/Dr. Jerrin Jose Thomas.jpeg",
             bio: "Distinguished ENT and Facial Plastic Surgeon with advanced training in Taiwan and the first fellow under the Facial Reconstructive and Cosmetic Surgery India Trust. Expert in rhinoplasty, FESS, and facial reconstruction.",
             experience: "12+ Years",
             qualification: "MBBS, MS (ENT), FAFPRS, FRFPS, FHBOT, FFPRS – Fellowship in Facial Plastic & Reconstructive Surgery (Taiwan)",
@@ -929,6 +929,36 @@ export const hospitalData = {
             experience: "11+ Years",
             qualification: "MBBS, MD (Psychiatry)",
             languages: "English, Malayalam"
+        },
+        {
+            id: 7,
+            name: "Dr. Acharya Rajneesh",
+            specialty: "Orthopaedic Surgery",
+            image: "",
+            bio: "Veteran Orthopaedic and Joint Replacement Surgeon with over 15 years of experience. Specializes in trauma management, ORIF of complex fractures, percutaneous pinning, total joint replacements, diagnostic arthroscopy, and patient-focused rehabilitation.",
+            experience: "15+ Years",
+            qualification: "MBBS, MS (Orthopaedics)",
+            languages: "English, Malayalam, Hindi"
+        },
+        {
+            id: 8,
+            name: "Dr. Nidhin Skariah",
+            specialty: "General & Laparoscopic Surgery",
+            image: "",
+            bio: "Experienced General and Laparoscopic Surgeon specializing in minimally invasive procedures including hernia repair, appendectomy, gallbladder surgery, and advanced general surgical care with faster recovery and minimal scarring.",
+            experience: "9+ Years",
+            qualification: "MBBS, MS (General Surgery), FMAS",
+            languages: "English, Malayalam, Hindi"
+        },
+        {
+            id: 9,
+            name: "Dr. Praveen Kumar KS",
+            specialty: "Sports Medicine & Orthopaedics",
+            image: "",
+            bio: "Sports Medicine and Arthroscopy specialist, official surgeon of Kerala Blasters FC. Expertise includes joint replacement, arthroscopy, complex fracture management, sports injury treatment, and shoulder & elbow surgery.",
+            experience: "15+ Years",
+            qualification: "MBBS, MS (Orthopaedics), MCh (Orthopaedics)",
+            languages: "English, Malayalam, Hindi"
         }
     ],
     testimonials: [

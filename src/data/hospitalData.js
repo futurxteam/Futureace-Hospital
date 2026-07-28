@@ -959,7 +959,47 @@ export const hospitalData = {
             experience: "15+ Years",
             qualification: "MBBS, MS (Orthopaedics), MCh (Orthopaedics)",
             languages: "English, Malayalam, Hindi"
-        }
+        },
+        {
+            id: 10,
+            name: "Mary Anusha Sebastian",
+            specialty: "Psychology",
+            image: "",
+            bio: "RCI-licensed Clinical Psychologist with specialized training in clinical psychology and mental health care. JRF-qualified by the University Grants Commission, she provides evidence-based psychological assessment and therapy with a compassionate, patient-centered approach.",
+            experience: "2+ Years",
+            qualification: "M.Sc. Clinical Psychology, M.Phil Clinical Psychology, JRF Qualified (UGC)",
+            languages: "English, Malayalam"
+        },
+        {
+            id: 11,
+            name: "Dr. Abraham K Abraham",
+            specialty: "General Medicine",
+            image: "",
+            bio: "Senior Consultant Physician with extensive experience in internal medicine and allied specialties. Expertise includes the diagnosis and long-term management of diabetes, hypertension, dyslipidemia, obesity, asthma, coronary heart disease, and thyroid disorders.",
+            experience: "20+ Years",
+            qualification: "MBBS, MD, FCPS",
+            languages: "English, Malayalam, Hindi"
+        },
+        {
+            id: 12,
+            name: "Dr. Saju K G",
+            specialty: "ENT Surgery",
+            image: "",
+            bio: "Highly experienced ENT Surgeon with over 26 years of clinical practice. Specializes in diagnosing and treating a wide range of ear, nose, and throat conditions while providing comprehensive surgical and patient-focused care.",
+            experience: "26+ Years",
+            qualification: "MBBS, MS (ENT)",
+            languages: "English, Malayalam"
+        },
+        {
+            id: 13,
+            name: "Dr. Anoop G Mohan",
+            specialty: "Plastic & Cosmetic Surgery",
+            image: "",
+            bio: "International Aesthetic Plastic Surgery Consultant and Director specializing in body sculpting, body contouring, and advanced aesthetic procedures. Certified TD Master in High Definition Liposculpture, he combines internationally proven techniques with the latest technology to achieve natural-looking results.",
+            experience: "18+ Years",
+            qualification: "MBBS, MS (General Surgery), MCh (Plastic Surgery), Certification in Trichology & Hair Transplant",
+            languages: "English, Malayalam"
+        },
     ],
     testimonials: [
         {

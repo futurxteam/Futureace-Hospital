@@ -1,0 +1,23 @@
+{
+    "name": "futureace-backend",
+    "version": "1.0.0",
+    "description": "Futureace Hospital Backend",
+    "type": "module",
+    "main": "server.js",
+    "scripts": {
+        "dev": "nodemon --exec \"node --env-file=.env server.js\" server.js",
+        "start": "node --env-file=.env server.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.4.5",
+        "express": "^5.2.1",
+        "googleapis": "^173.0.0"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.14"
+    }
+}

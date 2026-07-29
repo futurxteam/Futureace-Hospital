@@ -5,9 +5,9 @@
     "type": "module",
     "main": "server.js",
     "scripts": {
-        "dev": "nodemon --exec \"node --env-file=.env server.js\" server.js",
-        "start": "node --env-file=.env server.js"
-    },
+  "start": "node server.js",
+  "dev": "node --env-file=.env server.js"
+}
     "keywords": [],
     "author": "",
     "license": "ISC",

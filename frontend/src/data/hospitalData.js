@@ -1030,8 +1030,8 @@ export const hospitalData = {
 };
 
 export const statsData = [
-    { label: "Doctors At Work", value: 500, suffix: "+" },
+    { label: "Doctors At Work", value: 20, suffix: "+" },
     { label: "Happy Patients", value: 58796, suffix: "+" },
-    { label: "Medical Beds", value: 500, suffix: "+" },
-    { label: "Winning Awards", value: 200, suffix: "+" },
+    { label: "Medical Beds", value: 20, suffix: "+" },
+    { label: "Winning Awards", value: 20, suffix: "+" },
 ];

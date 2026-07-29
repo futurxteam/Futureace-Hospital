@@ -12,6 +12,7 @@ import WhatsAppButton from './components/WhatsAppButton';
 import ScrollToTop from './components/ScrollToTop';
 import Consultation from './pages/Consultation';
 import ConsultationSuccess from './pages/ConsultationSuccess';
+import BookConsultation from './pages/BookConsultation';
 
 // Simple placeholder for other pages
 const PagePlaceholder = ({ title }) => (
@@ -38,6 +39,7 @@ function App() {
           <Route path="/department/:id" element={<DepartmentDetail />} />
           <Route path="/consultation" element={<Consultation />} />
           <Route path="/consultation-success" element={<ConsultationSuccess />} />
+          <Route path="/book-consultation" element={<BookConsultation />} />
         </Routes>
         <Footer />
         <WhatsAppButton />

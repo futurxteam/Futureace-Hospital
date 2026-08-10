@@ -29,6 +29,8 @@ app.use(cors({
         "http://localhost:5173",
         "https://futureacehospital.com",
         "https://www.futureacehospital.com",
+        "http://localhost:5174",
+
     ],
     methods: ["GET", "POST"],
     allowedHeaders: ["Content-Type"],

@@ -21,4 +21,4 @@ export const updateBlog = (id, payload) =>
 export const deleteBlog = (id) =>
     apiRequest(`/blogs/${id}`, {
         method: "DELETE"
-    });
+    });    

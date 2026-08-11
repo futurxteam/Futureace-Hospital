@@ -1,5 +1,5 @@
 const API_BASE_URL =
-    "http://localhost:5000/api";
+    "https://futureace-hospital-1.onrender.com";
 
 export async function apiRequest(
     endpoint,

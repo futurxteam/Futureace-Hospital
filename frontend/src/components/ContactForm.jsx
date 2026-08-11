@@ -12,7 +12,7 @@ export default function AppointmentSection() {
       >
         <div className="contact-hero-overlay" />
 
-        <div className="contact-hero-content">
+        <div className="contact-hero-content"> 
           <h1>Book an Appointment</h1>
           <p>We’re here to help you with world-class care and personal attention.</p>
         </div>

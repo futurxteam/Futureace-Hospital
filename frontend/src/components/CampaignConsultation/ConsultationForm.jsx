@@ -1,5 +1,6 @@
 import React, { useState, useCallback, useId } from 'react';
 import { submitEnquiry } from '../../api/enquiryAPI';
+import { trackLead } from '../../utils/metaPixel';
 
 /* ─────────────────────────────────────────────────────────────────────────────
    VALIDATION HELPERS
@@ -143,6 +144,22 @@ export default function ConsultationForm({ config, utm, onSuccess }) {
       };
 
       await submitEnquiry(payload);
+
+      /* ── Meta Pixel: Lead ──────────────────────────────────────────────
+         Fired ONLY after the backend confirms success. If submitEnquiry() throws,
+         execution jumps to the catch block and this line is never reached.
+         Wrapped in its own try/catch so an analytics failure cannot prevent
+         onSuccess() from running. */
+      try {
+        trackLead({
+          consultation_type: config.backendConsultationType,
+          city:              form.city.trim() || undefined,
+          preferred_date:    form.preferredDate || undefined,
+        });
+      } catch (_) {
+        /* Analytics errors are swallowed — never block the user flow */
+      }
+
       onSuccess?.();
     } catch (err) {
       setApiError(err.message || 'Something went wrong. Please try again.');

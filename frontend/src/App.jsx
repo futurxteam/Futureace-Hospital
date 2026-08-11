@@ -13,6 +13,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Consultation from './pages/Consultation';
 import ConsultationSuccess from './pages/ConsultationSuccess';
 import BookConsultation from './pages/BookConsultation';
+import MetaPixelTracker from './components/MetaPixelTracker';
 
 // Simple placeholder for other pages
 const PagePlaceholder = ({ title }) => (
@@ -28,6 +29,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <MetaPixelTracker />
       <div className="App">
         <Header />
         <Routes>

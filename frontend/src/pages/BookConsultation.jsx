@@ -5,6 +5,7 @@ import Hero from '../components/CampaignConsultation/Hero';
 import ConsultationForm from '../components/CampaignConsultation/ConsultationForm';
 import Sidebar from '../components/CampaignConsultation/Sidebar';
 import SuccessModal from '../components/CampaignConsultation/SuccessModal';
+import { trackConsultationView } from '../utils/metaPixel';
 import '../styles/bookConsultation.css';
 
 /* ─────────────────────────────────────────────────────────────────────────────
@@ -48,6 +49,12 @@ export default function BookConsultation() {
       document.head.appendChild(metaDesc);
     }
     metaDesc.setAttribute('content', config.seoDescription);
+
+    /* ── Meta Pixel: ViewContent ──────────────────────────────────────────
+       Fires once whenever the consultation type resolves (initial load or if
+       the ?type= param changes). Uses backendConsultationType so names are
+       never hardcoded — they come from the master config. */
+    trackConsultationView(config.backendConsultationType);
 
     /* Cleanup on unmount — restore default title */
     return () => {

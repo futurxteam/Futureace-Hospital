@@ -69,7 +69,7 @@ export default function ConsultationForm() {
     });
     if (msgs.length) setErrors((prev) => ({ ...prev, files: msgs.join(' ') }));
     else setErrors((prev) => ({ ...prev, files: '' }));
-    return valid;
+    return valid;  
   };
 
   const addFiles = (incoming) => {

@@ -35,6 +35,14 @@ export async function createEnquiry(req, res) {
         });
     }
 
+    // ── Privacy Consent validation ──────────────────────────────────────────
+    if (req.body.privacyConsent !== true && req.body.privacyConsent !== "true") {
+        return res.status(400).json({
+            success: false,
+            message: "Consent to Privacy Policy and Terms & Conditions is required.",
+        });
+    }
+
     // ── Save to Google Sheets ───────────────────────────────────────────────
     try {
         await saveEnquiry(req.body);

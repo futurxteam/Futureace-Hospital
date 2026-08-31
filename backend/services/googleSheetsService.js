@@ -44,7 +44,8 @@ export async function saveEnquiry(data) {
         data.notes             ?? "",
         JSON.stringify(data.dynamicFields ?? {}),
         "Website",
-        "", "", "", "",  // reserved columns L-P
+        data.privacyConsent ? "Consent: Yes" : "Consent: No",
+        "", "", "",  // reserved columns M-P
         "New",           // status column Q
     ];
 

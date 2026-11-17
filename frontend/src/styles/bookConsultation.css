@@ -12,13 +12,13 @@
 .bk-page {
   min-height: 100vh;
   background: #f8fafc;
-  padding-top: 80px; /* accounts for fixed header */
+  padding-top: 0;
 }
 
 /* ─── HERO ─────────────────────────────────────────────────────────────────── */
 .bk-hero {
   background: linear-gradient(135deg, #0d3b5e 0%, #0077b6 45%, #00b4d8 100%);
-  padding: 5rem 0 4rem;
+  padding: 160px 0 4.5rem;
   position: relative;
   overflow: hidden;
 }
@@ -691,7 +691,7 @@
 
 @media (max-width: 640px) {
   .bk-hero {
-    padding: 3.5rem 0 3rem;
+    padding: 130px 0 3rem;
   }
 
   .bk-hero h1 {
@@ -732,8 +732,58 @@
   }
 }
 
+/* ── Consent Checkbox ───────────────────────────────────────── */
+.bk-consent-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+  padding: 16px 18px;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+  transition: all 0.25s ease;
+  margin-top: 6px;
+}
+
+.bk-consent-label:hover {
+  border-color: #00b4d8;
+  background: rgba(0, 180, 216, 0.02);
+}
+
+.bk-consent-label.bk-error-border {
+  border-color: #ef4444;
+  background: #fff5f5;
+}
+
+.bk-consent-checkbox {
+  width: 18px;
+  height: 18px;
+  accent-color: #00b4d8;
+  flex-shrink: 0;
+  margin-top: 2px;
+  cursor: pointer;
+}
+
+.bk-consent-text {
+  font-size: 0.86rem;
+  color: #475569;
+  line-height: 1.55;
+}
+
+.bk-consent-text a {
+  color: #0284c7;
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.bk-consent-text a:hover {
+  color: #0369a1;
+}
+
 @media (max-width: 420px) {
   .bk-radio-group {
     flex-direction: column;
   }
 }
+

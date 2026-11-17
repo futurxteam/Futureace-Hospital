@@ -1,5 +1,5 @@
 :root {
-  --font-main: 'Outfit', sans-serif;
+  --font-main: 'Outfit', 'Noto Sans Malayalam', sans-serif;
 
   /* Colors */
   --bg-color: #ffffff;

@@ -1,0 +1,378 @@
+{
+  "common": {
+    "appName": "FutureAce Hospital",
+    "language": "Language",
+    "english": "English",
+    "malayalam": "മലയാളം",
+    "next": "Next",
+    "back": "Back",
+    "previous": "Previous",
+    "submit": "Submit",
+    "continue": "Continue",
+    "cancel": "Cancel",
+    "reset": "Reset fields",
+    "required": "Required",
+    "optional": "Optional",
+    "loading": "Loading...",
+    "submitting": "Submitting...",
+    "success": "Success",
+    "error": "Error",
+    "downloadReport": "Download Report (PDF)",
+    "printReport": "Print / Save PDF",
+    "startAgain": "Start Again",
+    "restart": "Start New Assessment",
+    "callDesk": "Call Care Desk",
+    "requestConsultation": "Request a Consultation",
+    "gender": {
+      "label": "Gender",
+      "male": "Male",
+      "female": "Female",
+      "preferNotToSay": "Other / Prefer not to say"
+    },
+    "units": {
+      "cm": "cm",
+      "kg": "kg",
+      "yrs": "yrs",
+      "kgm2": "kg/m²"
+    }
+  },
+  "popup": {
+    "enHeading": "Welcome to FutureAce Health Assessment",
+    "mlHeading": "ഫ്യൂച്ചർഏസ് ഹെൽത്ത് അസസ്മെന്റിലേക്ക് സ്വാഗതം",
+    "enDesc": "Choose your preferred language to continue.",
+    "mlDesc": "തുടരുന്നതിനായി നിങ്ങളുടെ ഇഷ്ടപ്പെട്ട ഭാഷ തിരഞ്ഞെടുക്കുക.",
+    "selectEnglish": "English",
+    "selectMalayalam": "മലയാളം (Malayalam)",
+    "closeAria": "Close modal"
+  },
+  "whatsapp": {
+    "badge": "Official FutureAce Community",
+    "groupName": "Fat Lose Challenge",
+    "heading": "Join Our Fat Loss Challenge!",
+    "description": "Take the next step towards a healthier lifestyle. Join our WhatsApp community to stay motivated, connect with others, and receive updates and guidance during your fitness journey.",
+    "button": "Join WhatsApp Group",
+    "features": {
+      "f1": "Free Community Support",
+      "f2": "Expert Medical Guidance",
+      "f3": "Daily Health Motivation"
+    }
+  },
+  "healthCalculator": {
+    "hero": {
+      "badge": "FutureAce Preventive Health Tools",
+      "title1": "Understand Your Health.",
+      "title2": "Take the Next Step.",
+      "subtitle": "Explore your BMI and metabolic health indicators with simple, accessible health calculators from FutureAce Hospital.",
+      "btnBmi": "Calculate My BMI",
+      "btnMetabolic": "Check My Metabolic Risk",
+      "btnDiet": "Get My Diet Plan",
+      "disclaimer": "These tools provide general health information and do not replace professional medical advice."
+    },
+    "selector": {
+      "activeTool": "Active Tool",
+      "quickScreening": "Quick Screening",
+      "comprehensiveReview": "Comprehensive Review",
+      "personalizedNutrition": "Personalized Nutrition",
+      "bmiTitle": "BMI Calculator",
+      "bmiDesc": "Understand how your weight relates to your height and explore what your BMI result means using South Asian adult screening standards.",
+      "metabolicTitle": "Metabolic Risk Assessment",
+      "metabolicDesc": "Review your body measurements and selected health risk indicators to understand what may deserve further clinical attention.",
+      "dietTitle": "Personalized Diet Plan",
+      "dietDesc": "Take a clinical-grade nutrition questionnaire to receive a structured meal framework matching your age, sex, and health goals.",
+      "calculateBmi": "Calculate My BMI",
+      "assessMetabolic": "Assess My Metabolic Risk",
+      "startDietPlan": "Start Diet Questionnaire"
+    },
+    "bmiForm": {
+      "bannerTitle": "Body Mass Index (BMI) Calculator",
+      "bannerSub": "Standard adult anthropometric screening calibrated for South Asian populations",
+      "heightLabel": "Height in Centimetres",
+      "weightLabel": "Weight in Kilograms",
+      "ageLabel": "Age in Years",
+      "genderLabel": "Gender",
+      "contextualDetails": "Contextual Details",
+      "ageHelper": "Adult category thresholds apply to age 18 and older.",
+      "calculateBtn": "Calculate My BMI",
+      "resetBtn": "Reset fields",
+      "valHeightReq": "Height is required.",
+      "valHeightNum": "Height must be a valid number.",
+      "valHeightPositive": "Height must be greater than zero.",
+      "valHeightRange": "Please enter a plausible height between 50 cm and 250 cm.",
+      "valWeightReq": "Weight is required.",
+      "valWeightNum": "Weight must be a valid number.",
+      "valWeightPositive": "Weight must be greater than zero.",
+      "valWeightRange": "Please enter a plausible weight between 15 kg and 300 kg.",
+      "valAgeRange": "Age must be between 1 and 120."
+    },
+    "bmiResult": {
+      "reportTitle": "Body Mass Index (BMI) Report",
+      "hospitalMeta": "FutureAce Hospital • Department of Preventive Health & Wellness",
+      "calcBmiLabel": "Calculated Body Mass Index (BMI)",
+      "referenceRange": "Reference Range",
+      "southAsianStandard": "Consensus Guidelines for Asian Indians",
+      "scaleTitle": "South Asian Adult Screening Reference Scale",
+      "categories": {
+        "underweight": "Underweight Range",
+        "healthy": "Reference Healthy-Weight Range",
+        "overweight": "Overweight Range",
+        "obesity": "Obesity Range"
+      },
+      "table": {
+        "title": "Recorded Anthropometrics Summary",
+        "recordedMetric": "Recorded Metric",
+        "valueEntered": "Value Entered",
+        "clinicalContext": "Clinical Context",
+        "height": "Height",
+        "weight": "Weight",
+        "age": "Age",
+        "gender": "Gender",
+        "notProvided": "Not provided"
+      },
+      "clinicalNotesTitle": "Clinical Interpretation & Next Steps",
+      "recommendationsTitle": "Preventive Recommendations",
+      "disclaimer": "This BMI assessment is a preliminary educational screening tool and does not constitute medical diagnosis."
+    },
+    "metabolic": {
+      "bannerTitle": "Metabolic Risk Assessment",
+      "bannerSub": "Screening for abdominal adiposity, insulin resistance risk, and cardiometabolic factors",
+      "secA": "Section A: Personal Details",
+      "secASub": "Used to personalize your assessment and facilitate doctor follow-up",
+      "fullName": "Full Name",
+      "mobile": "Mobile Number",
+      "email": "Email Address",
+      "secB": "Section B: Clinical Measurements",
+      "secBSub": "Key anthropometrics for metabolic risk calculation",
+      "waistLabel": "Waist Circumference in Centimetres",
+      "waistHelper": "Measure at the midpoint between the lower rib and iliac crest (usually at the level of the navel).",
+      "secC": "Section C: Existing Diagnosed Conditions",
+      "secCSub": "Select any chronic conditions diagnosed by a medical doctor",
+      "conditions": {
+        "diabetes": "Type 2 Diabetes",
+        "hypertension": "High Blood Pressure",
+        "pcod": "PCOD / PCOS",
+        "fattyLiver": "Fatty Liver",
+        "triglycerides": "High Triglycerides",
+        "thyroid": "Thyroid Disorder",
+        "none": "None of the above",
+        "preferNot": "Prefer not to say"
+      },
+      "calculateBtn": "Assess My Metabolic Risk",
+      "resultsTitle": "Metabolic Risk Screening Report",
+      "riskLevel": "Risk Classification Level",
+      "elevatedHeading": "Elevated Risk Indicators",
+      "optimalHeading": "Optimal Indicators",
+      "nextStepsHeading": "Clinical Next Steps & Guidance",
+      "valName": "Please enter your full name.",
+      "valMobile": "Please enter a valid mobile number.",
+      "valEmail": "Please enter a valid email address.",
+      "valWaistRange": "Please enter a plausible waist circumference between 40 cm and 200 cm."
+    },
+    "leadForm": {
+      "heading": "Request a Doctor Follow-Up Consultation",
+      "sub": "Have a FutureAce physician review your assessment results and guide your preventive health journey.",
+      "name": "Your Full Name",
+      "phone": "Mobile Number",
+      "email": "Email Address",
+      "consent": "I agree to the FutureAce Privacy Policy and consent to be contacted regarding health consultation.",
+      "btnSubmit": "Request Follow-Up Consultation",
+      "submitting": "Submitting...",
+      "successTitle": "Consultation Request Received!",
+      "successMsg": "Our medical team will contact you shortly to schedule your appointment.",
+      "errorMsg": "Unable to submit your request at this time. Please try again or contact FutureAce Hospital directly."
+    },
+    "edu": {
+      "heading": "Why Metabolic Screening Matters for South Asians",
+      "sub": "Evidence-based insights into anthropometric markers and preventative wellness",
+      "c1Title": "The South Asian Phenotype",
+      "c1Desc": "South Asians often possess what clinicians describe as the \"thin-fat phenotype\"—greater proportion of visceral fat even with relatively normal or modest body weight. This is why international standards recommend earlier clinical attention at lower BMI cutoffs.",
+      "c2Title": "Beyond the Weighing Scale",
+      "c2Desc": "Weight alone does not reflect fat distribution. Evaluating waist-to-height ratio (WHtR < 0.50) and waist circumference offers valuable insight into central adiposity, which is more strongly linked to insulin resistance and arterial health.",
+      "c3Title": "Early Proactive Action",
+      "c3Desc": "Metabolic risks develop gradually over years. Identifying slight elevations early empowers you to partner with medical professionals, optimize lifestyle habits, and conduct targeted routine blood tests before complications emerge."
+    },
+    "faqs": {
+      "heading": "Frequently Asked Questions",
+      "sub": "Common questions regarding BMI, waist measurements, and metabolic health screening",
+      "q1": "Why are South Asian BMI categories different from WHO international cutoffs?",
+      "a1": "Extensive clinical research, including the Consensus Guidelines for Asian Indians, indicates that South Asian individuals tend to accumulate higher percentages of body fat and visceral adiposity at lower body mass index values compared to Caucasian populations. Consequently, the threshold for overweight in South Asian adults begins at 23.0 kg/m² (rather than 25.0 kg/m²), and obesity begins at 25.0 kg/m² (rather than 30.0 kg/m²).",
+      "q2": "Does a normal BMI guarantee optimal metabolic health?",
+      "a2": "Not necessarily. While BMI is a valuable population screening tool, it does not distinguish between lean muscle tissue and body fat, nor does it identify where fat is stored. Individuals with normal BMI can still experience central adiposity (abdominal fat) and insulin resistance—a presentation often termed the \"metabolically obese normal weight\" (MONW) phenotype. Incorporating waist circumference and waist-to-height ratio provides a more comprehensive picture.",
+      "q3": "Why is waist circumference measured in addition to height and weight?",
+      "a3": "Waist circumference directly screens for abdominal (visceral) fat, which wraps around vital organs like the liver and pancreas. Visceral fat is metabolically active and strongly correlated with cardiovascular diseases, hypertension, and Type 2 diabetes. South Asian consensus guidelines recommend waist cutoffs of under 90 cm for men and under 80 cm for women.",
+      "q4": "What should I do if one or more screening indicators are elevated?",
+      "a4": "Remember that an elevated screening indicator is an observation, not an irreversible disease diagnosis. It highlights an opportunity for early, proactive intervention. We recommend sharing these results with a physician at FutureAce Hospital, who can arrange standard clinical laboratory panels (such as lipid profile, fasting blood sugar, HbA1c, and liver enzymes) and advise on tailored nutrition and activity plans."
+    },
+    "disclaimer": {
+      "title": "Clinical Screening & Medical Disclaimer",
+      "text": "The BMI and Metabolic Risk Calculators provided on this page are intended exclusively for general health education and preliminary screening in adult South Asian populations. These tools do not constitute clinical diagnosis, medical evaluation, or individualized treatment plans. Variations in muscle mass, bone density, age, pregnancy, and underlying medical conditions affect anthropometric measures. Always consult a qualified medical professional at FutureAce Hospital before initiating or changing any dietary, medication, or exercise regimen."
+    }
+  },
+  "dietician": {
+    "hero": {
+      "badge": "FutureAce Clinical Nutrition & Wellness",
+      "title1": "Your Personalized",
+      "title2": "Diet Plan Starts Here",
+      "subtitle": "Tell us about your health goals, daily habits, and dietary preferences. Receive a diet plan matched to your selected age and sex group.",
+      "btnCreate": "Create My Diet Plan",
+      "pill": "Your answers help us provide relevant dietary guidance. This tool does not replace individualized advice from a qualified dietitian."
+    },
+    "howItWorks": {
+      "heading": "How It Works",
+      "sub": "Three simple steps to access your personalized dietary guidance",
+      "step1Title": "Share Your Details",
+      "step1Desc": "Enter baseline age, sex, height, weight, and contact information to calibrate nutritional needs.",
+      "step2Title": "Answer Health Questions",
+      "step2Desc": "Share your weight goals, dietary preferences, physical activity, digestion, and any allergies.",
+      "step3Title": "View Your Diet Plan",
+      "step3Desc": "Receive your personalized age- and sex-matched diet framework, ready to review, print, or discuss."
+    },
+    "steps": {
+      "step1": "Personal Details",
+      "step2": "Weight Goals",
+      "step3": "Medical History",
+      "step4": "Eating Habits",
+      "step5": "Lifestyle & Digestion",
+      "step6": "Allergies & Review"
+    },
+    "q1": {
+      "title": "Question 1: What is your primary weight-loss goal?",
+      "opt1": "Lose 3–5 kg",
+      "opt1Desc": "Mild weight reduction / body composition tuning",
+      "opt2": "Lose 5–10 kg",
+      "opt2Desc": "Moderate weight reduction target",
+      "opt3": "Lose more than 10 kg",
+      "opt3Desc": "Comprehensive lifestyle & weight management",
+      "opt4": "Improve overall health and fitness",
+      "opt4Desc": "Focus on metabolic vitality, stamina, and balanced nutrition"
+    },
+    "q2": {
+      "title": "Question 2: Have you tried to lose weight previously?",
+      "opt1": "No, this is my first attempt",
+      "opt1Desc": "Beginning your structured nutrition journey",
+      "opt2": "Yes, with dietary changes",
+      "opt2Desc": "Self-directed dietary modifications previously",
+      "opt3": "Yes, with professional guidance",
+      "opt3Desc": "Consulted a dietician, nutritionist, or trainer in the past",
+      "opt4": "Yes, but I did not achieve the desired results",
+      "opt4Desc": "Experienced challenges with sustainability or plateau"
+    },
+    "q3": {
+      "title": "Question 3: Diagnosed medical conditions or regular medications",
+      "opt1": "No known conditions or regular medications",
+      "opt1Desc": "No current diagnosis or routine prescription pharmaceuticals",
+      "opt2": "Diabetes",
+      "opt2Desc": "Requires balanced carbohydrate distribution and glycemic index management",
+      "opt3": "Thyroid disorder or PCOS/PCOD",
+      "opt3Desc": "Endocrine and hormonal factors impacting metabolic rate and insulin sensitivity",
+      "opt4": "High cholesterol or other medical conditions",
+      "opt4Desc": "Dyslipidemia, hypertension, fatty liver, or other diagnosed conditions",
+      "otherConditionsPlaceholder": "Please briefly describe your medical condition or medications..."
+    },
+    "q4": {
+      "title": "Question 4: Number of main meals per day",
+      "opt1": "1–2 meals daily",
+      "opt1Desc": "Fewer, larger meals or intermittent eating",
+      "opt2": "3 meals daily",
+      "opt2Desc": "Standard breakfast, lunch, and dinner routine",
+      "opt3": "4 meals daily",
+      "opt3Desc": "Frequent smaller meals including structured snacks",
+      "opt4": "My meal timings vary daily",
+      "opt4Desc": "Irregular eating intervals based on work and commute"
+    },
+    "q5": {
+      "title": "Question 5: Frequency of skipping meals",
+      "opt1": "Never or rarely",
+      "opt1Desc": "Consistent meal consumption",
+      "opt2": "1–2 times per week",
+      "opt2Desc": "Occasional missed breakfast or lunch",
+      "opt3": "3–4 times per week",
+      "opt3Desc": "Frequent meal gaps due to busy schedules",
+      "opt4": "Almost every day",
+      "opt4Desc": "Routine skipping of primary meals"
+    },
+    "q6": {
+      "title": "Question 6: Current food preference",
+      "opt1": "Vegetarian",
+      "opt1Desc": "Plant-based foods, dairy (milk, paneer, curd, ghee), pulses, grains; no meat, poultry, or fish",
+      "opt2": "Non-vegetarian",
+      "opt2Desc": "Includes poultry, fish, eggs, dairy, vegetables, pulses, and whole grains",
+      "opt3": "Eggetarian",
+      "opt3Desc": "Vegetarian diet supplemented with eggs; strictly excludes poultry, meat, and seafood",
+      "opt4": "Vegan",
+      "opt4Desc": "100% plant-derived diet; strictly excludes meat, fish, eggs, dairy, and animal derivatives"
+    },
+    "q7": {
+      "title": "Question 7: Physical activity level",
+      "opt1": "Sedentary — mostly sitting with little exercise",
+      "opt1Desc": "Desk job, minimal physical exertion or formal workouts",
+      "opt2": "Lightly active — occasional walking",
+      "opt2Desc": "1–2 days of light walking or general household movement weekly",
+      "opt3": "Moderately active — regular walking or exercise",
+      "opt3Desc": "3–5 days of 30+ minutes moderate exercise (brisk walking, cycling, yoga, gym)",
+      "opt4": "Highly active — physically demanding work or intensive exercise",
+      "opt4Desc": "Daily athletic training, intense fitness regimes, or physically arduous occupation"
+    },
+    "q8": {
+      "title": "Question 8: Usual bowel habits",
+      "opt1": "Regular and comfortable",
+      "opt1Desc": "Daily, comfortable bowel evacuation without straining or urgency",
+      "opt2": "Frequent constipation",
+      "opt2Desc": "Infrequent, hard, or difficult-to-pass stools requiring straining",
+      "opt3": "Frequent loose stools",
+      "opt3Desc": "Watery, urgent, or loose bowel motions multiple times weekly",
+      "opt4": "Alternating constipation and loose stools",
+      "opt4Desc": "Fluctuating between hard and loose consistency"
+    },
+    "q9": {
+      "title": "Question 9: Frequency of digestive problems",
+      "opt1": "Bloating or gas",
+      "opt1Desc": "Abdominal distension, fullness, or intestinal gas after meals",
+      "opt2": "Acidity or acid reflux",
+      "opt2Desc": "Heartburn, sour belching, or burning sensation in chest or throat",
+      "opt3": "Diarrhoea",
+      "opt3Desc": "Frequent watery stools with urgency",
+      "opt4": "Other digestive problems",
+      "opt4Desc": "Nausea, abdominal cramping, indigestion, or other chronic discomfort",
+      "opt5": "Rarely or none",
+      "opt5Desc": "Comfortable digestion with no significant daily complaints",
+      "otherDigestivePlaceholder": "Describe your digestive discomfort..."
+    },
+    "q10": {
+      "title": "Question 10: Food allergies or intolerances",
+      "opt1": "Milk or milk products",
+      "opt1Desc": "Dairy, lactose intolerance, paneer, curd, or milk proteins",
+      "opt2": "Wheat or gluten-containing foods",
+      "opt2Desc": "Gluten sensitivity, celiac disease, wheat rotis, or maida products",
+      "opt3": "Certain pulses or legumes",
+      "opt3Desc": "Intolerance or distress with lentils, chana, rajma, or whole dals",
+      "opt4": "Seafood or other foods",
+      "opt4Desc": "Shellfish, sea fish, or other specific dietary allergens",
+      "opt5": "None known",
+      "opt5Desc": "No known food allergies, hypersensitivities, or acute intolerances",
+      "allergyPlaceholder": "Please specify which foods cause reactions or allergies..."
+    },
+    "review": {
+      "title": "Review Your Details",
+      "sub": "Please verify all answers before generating your clinical diet plan.",
+      "edit": "Edit",
+      "consent": "I agree to the FutureAce Privacy Policy and Terms & Conditions to generate my diet plan.",
+      "generateBtn": "Generate My Diet Plan"
+    },
+    "results": {
+      "guidanceReady": "Personalized Nutritional Guidance Ready",
+      "profileOverview": "Personal Profile & Anthropometric Overview",
+      "matchedFor": "Matched for",
+      "mealSchedule": "Structured Daily Meal Schedule",
+      "targetEnergy": "Target Focus",
+      "guideline": "Clinical Guideline",
+      "portion": "Recommended Portion",
+      "clinicalNotices": "Clinical Nutritionist Notices",
+      "digestiveGuidance": "Digestive Support Guidance",
+      "allergiesNoted": "Allergy Exclusions Applied",
+      "printBtn": "Print / Download PDF Report",
+      "consultTitle": "Need a More Personalized Diet Plan?",
+      "consultDesc": "Speak with the FutureAce Hospital team about your dietary goals, clinical lab panels, and personalized nutritional requirements."
+    }
+  }
+}
+

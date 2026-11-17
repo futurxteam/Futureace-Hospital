@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import * as Icons from "lucide-react";
 import { hospitalData } from "../data/hospitalData";
 import Reveal from "../components/Reveal";

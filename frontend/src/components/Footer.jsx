@@ -1,9 +1,37 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
+    const [email, setEmail] = useState('');
+    const [consent, setConsent] = useState(false);
+    const [newsletterStatus, setNewsletterStatus] = useState({ state: 'idle', message: '' });
+
+    const handleNewsletterSubmit = (e) => {
+        e.preventDefault();
+        if (!email.trim()) {
+            setNewsletterStatus({ state: 'error', message: 'Please enter your email address.' });
+            return;
+        }
+        if (!consent) {
+            setNewsletterStatus({ state: 'error', message: 'Please agree to the Privacy Policy and Terms & Conditions to subscribe.' });
+            return;
+        }
+        setNewsletterStatus({ state: 'success', message: 'Thank you for subscribing to our health updates!' });
+        setEmail('');
+        setConsent(false);
+    };
+
+    const sitemapLinks = [
+        { label: 'Home', path: '/' },
+        { label: 'About Us', path: '/about-us' },
+        { label: 'Specialities', path: '/specialities' },
+        { label: 'Doctors', path: '/doctors' },
+        { label: 'Health Calculator', path: '/health-calculator' },
+        { label: 'Contact Us', path: '/contact-us' },
+    ];
+
     return (
-        <footer style={{ background: '#f8fafc', padding: '4rem 0', marginTop: '4rem' }}>
+        <footer style={{ background: '#f8fafc', padding: '4rem 0', marginTop: '4rem', borderTop: '1px solid #e2e8f0' }}>
             <div className="container">
                 <div className="grid md-grid-4" style={{ gap: '3rem' }}>
                     <div>
@@ -22,9 +50,11 @@ const Footer = () => {
                     <div>
                         <h3 className="font-bold" style={{ marginBottom: '1rem' }}>Sitemap</h3>
                         <ul style={{ listStyle: 'none' }}>
-                            {['Home', 'About Us', 'Specialities', 'Doctors'].map(item => (
-                                <li key={item} style={{ marginBottom: '0.5rem' }}>
-                                    <a href="#" className="text-gray" style={{ textDecoration: 'none' }}>{item}</a>
+                            {sitemapLinks.map(item => (
+                                <li key={item.label} style={{ marginBottom: '0.5rem' }}>
+                                    <Link to={item.path} className="text-gray" style={{ textDecoration: 'none' }}>
+                                        {item.label}
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
@@ -33,21 +63,66 @@ const Footer = () => {
                     <div>
                         <h3 className="font-bold" style={{ marginBottom: '1rem' }}>Legal</h3>
                         <ul style={{ listStyle: 'none' }}>
-                            <li style={{ marginBottom: '0.5rem' }}><a href="#" className="text-gray" style={{ textDecoration: 'none' }}>Privacy Policy</a></li>
-                            <li style={{ marginBottom: '0.5rem' }}><a href="#" className="text-gray" style={{ textDecoration: 'none' }}>Terms of Service</a></li>
+                            <li style={{ marginBottom: '0.5rem' }}>
+                                <Link to="/privacy-policy" className="text-gray" style={{ textDecoration: 'none' }}>
+                                    Privacy Policy
+                                </Link>
+                            </li>
+                            <li style={{ marginBottom: '0.5rem' }}>
+                                <Link to="/terms-conditions" className="text-gray" style={{ textDecoration: 'none' }}>
+                                    Terms &amp; Conditions
+                                </Link>
+                            </li>
                         </ul>
                     </div>
 
                     <div>
                         <h3 className="font-bold" style={{ marginBottom: '1rem' }}>Newsletter</h3>
-                        <div style={{ display: 'flex', background: 'white', padding: '0.5rem', borderRadius: '99px', boxShadow: 'var(--shadow-sm)' }}>
-                            <input type="email" placeholder="Your email" style={{ border: 'none', outline: 'none', padding: '0.5rem 1rem', flex: 1, borderRadius: '99px' }} />
-                            <button className="btn-primary" style={{ padding: '0.5rem 1rem', fontSize: '0.9rem' }}>Subscribe</button>
-                        </div>
+                        <form onSubmit={handleNewsletterSubmit}>
+                            <div style={{ display: 'flex', background: 'white', padding: '0.5rem', borderRadius: '99px', boxShadow: 'var(--shadow-sm)', border: '1px solid #e2e8f0' }}>
+                                <input
+                                    type="email"
+                                    placeholder="Your email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    aria-label="Your email for newsletter"
+                                    style={{ border: 'none', outline: 'none', padding: '0.5rem 1rem', flex: 1, borderRadius: '99px', fontSize: '0.9rem' }}
+                                />
+                                <button type="submit" className="btn-primary" style={{ padding: '0.5rem 1.2rem', fontSize: '0.9rem' }}>
+                                    Subscribe
+                                </button>
+                            </div>
+
+                            <div style={{ marginTop: '10px', display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
+                                <input
+                                    type="checkbox"
+                                    id="footer-consent"
+                                    checked={consent}
+                                    onChange={(e) => setConsent(e.target.checked)}
+                                    style={{ marginTop: '3px', cursor: 'pointer' }}
+                                />
+                                <label htmlFor="footer-consent" style={{ fontSize: '0.78rem', color: '#64748b', lineHeight: 1.4, cursor: 'pointer' }}>
+                                    I agree to the{' '}
+                                    <Link to="/privacy-policy" style={{ color: '#0284c7', textDecoration: 'underline' }}>Privacy Policy</Link>{' '}
+                                    and{' '}
+                                    <Link to="/terms-conditions" style={{ color: '#0284c7', textDecoration: 'underline' }}>Terms &amp; Conditions</Link>.
+                                </label>
+                            </div>
+
+                            {newsletterStatus.message && (
+                                <p style={{
+                                    marginTop: '8px',
+                                    fontSize: '0.8rem',
+                                    color: newsletterStatus.state === 'error' ? '#ef4444' : '#16a34a'
+                                }}>
+                                    {newsletterStatus.message}
+                                </p>
+                            )}
+                        </form>
                     </div>
                 </div>
                 <div style={{ textAlign: 'center', marginTop: '3rem', color: '#9ca3af', fontSize: '0.9rem' }}>
-                    © 2024 Futureace Hospital. All rights reserved.
+                    © {new Date().getFullYear()} Futureace Hospital. All rights reserved.
                 </div>
             </div>
         </footer>

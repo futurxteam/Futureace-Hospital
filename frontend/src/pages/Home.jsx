@@ -1,6 +1,5 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { hospitalData } from "../data/hospitalData";
 import "./style/Home.css";
 import "../components/AppointmentSection.css";
 import Reveal from "../components/Reveal";
@@ -13,33 +12,13 @@ import FacilitiesSection from "../components/FacilitiesSection";
 import DoctorsSection from "../components/DoctorsSection";
 import AppointmentForm from "../components/AppoinmentForm";
 
+const HERO_IMAGES = [
+  "/banner1.jpg",
+  "/banner2.webp",
+  "/banner3.webp",
+];
+
 const Home = () => {
-  const [testimonialIndex, setTestimonialIndex] = useState(0);
-  const [testimonialDirection, setTestimonialDirection] = useState(0);
-  const testimonials = hospitalData.testimonials || [];
-  const t = testimonials[testimonialIndex];
-
-  const nextTestimonial = () => {
-    if (testimonials.length === 0) return;
-    setTestimonialDirection(1);
-    setTestimonialIndex((prev) =>
-      (prev + 1) % testimonials.length
-    );
-  };
-
-  const prevTestimonial = () => {
-    if (testimonials.length === 0) return;
-    setTestimonialDirection(-1);
-    setTestimonialIndex((prev) =>
-      (prev - 1 + testimonials.length) % testimonials.length
-    );
-  };
-
-  const HERO_IMAGES = [
-    "/banner1.jpg",
-    "/banner2.webp",
-    "/banner3.webp",
-  ];
 
   const [heroIndex, setHeroIndex] = useState(0);
 
@@ -127,66 +106,7 @@ const Home = () => {
         <DoctorsSection />
       </Reveal>
 
-      {/* ================= TESTIMONIALS ================= */}
-      <Reveal direction="up" delay={0.1}>
-        {t && (
-          <section className="section container testimonial-showcase">
-            <SectionHeader subtitle="Testimonials" align="center" title="Hear From Our Patients" />
 
-            <div className="testimonial-layout">
-              {/* LEFT IMAGE */}
-              <div className="testimonial-image">
-                <AnimatePresence mode="wait">
-                  <motion.img
-                    key={testimonialIndex}
-                    src={t.image}
-                    alt={t.name}
-                    initial={{ opacity: 0, scale: 0.92, filter: "blur(4px)" }}
-                    animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-                    exit={{ opacity: 0, scale: 0.95, filter: "blur(2px)" }}
-                    transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                  />
-                </AnimatePresence>
-              </div>
-
-              {/* RIGHT CONTENT */}
-              <div className="testimonial-content-box">
-                <AnimatePresence mode="wait" custom={testimonialDirection}>
-                  <motion.div
-                    key={testimonialIndex}
-                    custom={testimonialDirection}
-                    initial={{ y: testimonialDirection === 1 ? 20 : -20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: testimonialDirection === -1 ? 20 : -20, opacity: 0 }}
-                    transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                  >
-                    <h3 className="testimonial-heading">
-                      {t.headline || "Around-the-clock care delivered with compassion"}
-                    </h3>
-
-                    <div className="testimonial-quote-box">
-                      <p className="testimonial-quote-text">
-                        "{t.text}"
-                      </p>
-
-                      <div className="testimonial-person">
-                        <strong>{t.name}</strong>
-                        <span>{t.role}</span>
-                      </div>
-                    </div>
-                  </motion.div>
-                </AnimatePresence>
-
-                {/* NAV BUTTONS */}
-                <div className="testimonial-nav">
-                  <button onClick={prevTestimonial} aria-label="Previous testimonial">←</button>
-                  <button onClick={nextTestimonial} aria-label="Next testimonial">→</button>
-                </div>
-              </div>
-            </div>
-          </section>
-        )}
-      </Reveal>
 
       {/* ================= CONTACT ================= */}
       <section className="contact-mini">

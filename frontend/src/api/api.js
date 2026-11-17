@@ -1,5 +1,5 @@
 const API_BASE_URL =
-    "https://futureace-hospital-1.onrender.com";
+    import.meta.env.VITE_API_BASE_URL || "https://futureace-hospital-1.onrender.com/api";
 
 export async function apiRequest(
     endpoint,

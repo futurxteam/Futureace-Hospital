@@ -984,7 +984,7 @@ export const hospitalData = {
             id: 12,
             name: "Dr. Saju K G",
             specialty: "ENT Surgery",
-            image: "",
+            image: "/Doctors/saju.jpeg",
             bio: "Highly experienced ENT Surgeon with over 26 years of clinical practice. Specializes in diagnosing and treating a wide range of ear, nose, and throat conditions while providing comprehensive surgical and patient-focused care.",
             experience: "26+ Years",
             qualification: "MBBS, MS (ENT)",

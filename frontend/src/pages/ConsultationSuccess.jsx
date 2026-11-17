@@ -113,7 +113,7 @@ export default function ConsultationSuccess() {
             </svg>
             Return to Home
           </Link>
-          <Link to="/consultation" className="success-btn-secondary" id="submit-another">
+          <Link to="/book-consultation" className="success-btn-secondary" id="submit-another">
             Submit Another Request
           </Link>
         </div>

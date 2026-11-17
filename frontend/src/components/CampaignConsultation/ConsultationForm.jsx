@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useId } from 'react';
+import { Link } from 'react-router-dom';
 import { submitEnquiry } from '../../api/enquiryAPI';
 import { trackLead } from '../../utils/metaPixel';
 
@@ -31,6 +32,7 @@ export default function ConsultationForm({ config, utm, onSuccess }) {
     city: '',
     preferredDate: '',
     notes: '',
+    privacyConsent: false,
   });
 
   const [dynamicValues, setDynamicValues] = useState(() => {
@@ -54,8 +56,8 @@ export default function ConsultationForm({ config, utm, onSuccess }) {
 
   /* ── Change handlers ─────────────────────────────────────────────────── */
   const handleChange = useCallback((e) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
+    const { name, value, type, checked } = e.target;
+    setForm((prev) => ({ ...prev, [name]: type === 'checkbox' ? checked : value }));
     setErrors((prev) => ({ ...prev, [name]: '' }));
   }, []);
 
@@ -105,6 +107,11 @@ export default function ConsultationForm({ config, utm, onSuccess }) {
       }
     });
 
+    /* Privacy Consent */
+    if (!form.privacyConsent) {
+      errs.privacyConsent = 'Please read and agree to the Privacy Policy and Terms & Conditions.';
+    }
+
     return errs;
   };
 
@@ -135,6 +142,7 @@ export default function ConsultationForm({ config, utm, onSuccess }) {
         preferredDate: form.preferredDate || undefined,
         notes: form.notes.trim() || undefined,
         dynamicFields: { ...dynamicValues },
+        privacyConsent: true,
         utm: {
           source: utm?.source || '',
           medium: utm?.medium || '',
@@ -420,7 +428,7 @@ export default function ConsultationForm({ config, utm, onSuccess }) {
           </div>
         </div>
 
-        {/* ── Dynamic Fields (type-specific) ──────────────────────────── */}
+        {/* ── Dynamic Fields (type-specific) ──────────────────── */}
         {config?.dynamicFields?.length > 0 && (
           <>
             <div className="bk-section-divider" aria-hidden="true">
@@ -446,6 +454,36 @@ export default function ConsultationForm({ config, utm, onSuccess }) {
             onChange={handleChange}
             rows={3}
           />
+        </div>
+
+        {/* ── Privacy & Terms Consent Checkbox ── */}
+        <div className="bk-field-group" id={fieldId('privacyConsent')}>
+          <label
+            className={`bk-consent-label ${errors.privacyConsent ? 'bk-error-border' : ''}`}
+            htmlFor={inputId('privacyConsent')}
+          >
+            <input
+              id={inputId('privacyConsent')}
+              name="privacyConsent"
+              type="checkbox"
+              className="bk-consent-checkbox"
+              checked={form.privacyConsent}
+              onChange={handleChange}
+              aria-required="true"
+              aria-describedby={errors.privacyConsent ? `${uid}-err-privacyConsent` : undefined}
+            />
+            <span className="bk-consent-text">
+              I have read and agree to the{' '}
+              <Link to="/privacy-policy" target="_blank" rel="noopener noreferrer">
+                Privacy Policy
+              </Link>{' '}
+              and{' '}
+              <Link to="/terms-conditions" target="_blank" rel="noopener noreferrer">
+                Terms &amp; Conditions
+              </Link>.
+            </span>
+          </label>
+          <FieldError name="privacyConsent" />
         </div>
 
         {/* ── Submit ────────────────────────────────────────────────── */}

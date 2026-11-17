@@ -1,4 +1,5 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 /* ─────────────────────────────────────────────────────────────
    FORMSUBMIT ENDPOINT — replace with verified email if needed
@@ -34,20 +35,18 @@ export default function ConsultationForm() {
   const [dragging, setDragging] = useState(false);
 
   /* Hidden UTM fields — read from URL query params */
-  const [utm, setUtm] = useState({ source: 'Website', medium: '', campaign: '', content: '' });
-
-  const hiddenFormRef = useRef(null);
-  const fileInputRef = useRef(null);
-
-  useEffect(() => {
+  const [utm] = useState(() => {
     const params = new URLSearchParams(window.location.search);
-    setUtm({
+    return {
       source: params.get('source') || params.get('utm_source') || 'Website',
       medium: params.get('medium') || params.get('utm_medium') || '',
       campaign: params.get('campaign') || params.get('utm_campaign') || '',
       content: params.get('content') || params.get('utm_content') || '',
-    });
-  }, []);
+    };
+  });
+
+  const hiddenFormRef = useRef(null);
+  const fileInputRef = useRef(null);
 
   /* ── Field change handler ──────────────────── */
   const handleChange = (e) => {
@@ -102,7 +101,7 @@ export default function ConsultationForm() {
       newErrors.mobile = 'Enter a valid phone number (7–15 digits).';
     }
     if (!form.description.trim()) newErrors.description = 'Please describe your health concern.';
-    if (!form.consent) newErrors.consent = 'You must provide consent to continue.';
+    if (!form.consent) newErrors.consent = 'Please read and agree to the Privacy Policy and Terms & Conditions.';
     return newErrors;
   };
 
@@ -346,10 +345,14 @@ export default function ConsultationForm() {
                 onChange={handleChange}
               />
               <span className="consent-text">
-                I consent to{' '}
-                <strong>FutureAce Hospital</strong> contacting me regarding my consultation
-                request. I understand my information will be handled in accordance with the
-                hospital's privacy policy.
+                I have read and agree to the{' '}
+                <Link to="/privacy-policy" target="_blank" rel="noopener noreferrer" style={{ color: '#00b4d8', textDecoration: 'underline' }}>
+                  Privacy Policy
+                </Link>{' '}
+                and{' '}
+                <Link to="/terms-conditions" target="_blank" rel="noopener noreferrer" style={{ color: '#00b4d8', textDecoration: 'underline' }}>
+                  Terms &amp; Conditions
+                </Link>.
               </span>
             </label>
             {errors.consent && (
@@ -404,6 +407,7 @@ export default function ConsultationForm() {
         <input type="hidden" name="Gender" value={form.gender} />
         <input type="hidden" name="Mobile Number" value={form.mobile} />
         <input type="hidden" name="Health Concern" value={form.description} />
+        <input type="hidden" name="Privacy Consent" value="Agreed (Privacy Policy & Terms)" />
 
         {/* FormSubmit meta */}
         <input type="hidden" name="_subject" value="🏥 New Consultation Request — FutureAce Hospital" />

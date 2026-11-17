@@ -2,35 +2,46 @@ import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import LanguageSelector from "./LanguageSelector";
 import "./Header.css";
 
-const NAV_ITEMS = ["Home", "About Us", "Specialities", "Doctors", "Consultation", "Contact Us"];
+const NAV_ITEMS = ["Home", "About Us", "Specialities", "Doctors", "Varicose Vein", "Health Calculator", "Consultation", "Contact Us"];
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-const [scrolled, setScrolled] = useState(false);
-  // Close menu when route changes
+  const [scrolled, setScrolled] = useState(false);
+  const locationKey = location.key;
   useEffect(() => {
-    setIsOpen(false);
-  }, [location]);
-useEffect(() => {
-const onScroll = () => {
-setScrolled(window.scrollY > 60);
-};
+    const id = setTimeout(() => setIsOpen(false), 0);
+    return () => clearTimeout(id);
+  }, [locationKey]);
+  useEffect(() => {
+    const onScroll = () => {
+      setScrolled(window.scrollY > 60);
+    };
 
 
-window.addEventListener("scroll", onScroll);
-return () => window.removeEventListener("scroll", onScroll);
-}, []);
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   const isHome = location.pathname === '/';
   const isAbout = location.pathname === '/about-us';
   const isSpecialities = location.pathname === '/specialities';
   const isDoctors = location.pathname === '/doctors';
   const isContact = location.pathname === '/contact-us';
-  const isConsultation = location.pathname === '/consultation';
-  
+  const isConsultation = location.pathname === '/book-consultation' || location.pathname === '/consultation';
+  const isHealthCalculator = location.pathname === '/health-calculator' || location.pathname === '/dietician-plan';
+
   const shouldBeTransparent = (isHome || isAbout || isSpecialities || isDoctors || isContact || isConsultation) && !scrolled;
+
+  const getItemPath = (item) => {
+    if (item === 'Home') return '/';
+    if (item === 'Consultation') return '/book-consultation';
+    if (item === 'Health Calculator') return '/health-calculator';
+    if (item === 'Varicose Vein') return '/varicose-veins-treatment';
+    return `/${item.toLowerCase().replace(/ /g, '-')}`;
+  };
 
   return (
     <>
@@ -44,34 +55,37 @@ return () => window.removeEventListener("scroll", onScroll);
         <div className="header-bar">
 
           {/* Logo */}
-        
-<Link to="/" className="header-logo">
-  <img src="/FH.png" alt="Futureace Hospital" className="logo-img" />
-</Link>
+
+          <Link to="/" className="header-logo">
+            <img src="/FH.png" alt="Futureace Hospital" className="logo-img" />
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="header-nav">
             {NAV_ITEMS.map((item) => (
               <Link
                 key={item}
-                to={
-                  item === 'Home'
-                    ? '/'
-                    : `/${item.toLowerCase().replace(/ /g, '-')}`
-                }
+                to={getItemPath(item)}
               >
                 {item}
               </Link>
             ))}
           </nav>
 
+          {/* Language Selector */}
+          {isHealthCalculator && (
+            <div className="header-lang-wrapper" style={{ display: 'flex', alignItems: 'center' }}>
+              <LanguageSelector variant="header" />
+            </div>
+          )}
+
           {/* Desktop CTA */}
-  <Link to="/contact-us" className="cta-eldiora">
-<span className="cta-label">Book Now</span>
-<span className="cta-dot">
-<span className="cta-arrow">↗</span>
-</span>
-</Link>
+          <Link to="/book-consultation" className="cta-eldiora">
+            <span className="cta-label">Book Now</span>
+            <span className="cta-dot">
+              <span className="cta-arrow">↗</span>
+            </span>
+          </Link>
 
           {/* Mobile Toggle */}
           <button
@@ -105,7 +119,8 @@ return () => window.removeEventListener("scroll", onScroll);
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 28, stiffness: 280, mass: 0.8 }}
             >
-              <div className="mobile-drawer-header">
+              <div className="mobile-drawer-header" style={{ display: 'flex', alignItems: 'center', justifyContent: isHealthCalculator ? 'space-between' : 'flex-end', padding: '0 20px' }}>
+                {isHealthCalculator && <LanguageSelector variant="bar" />}
                 <button onClick={() => setIsOpen(false)}>
                   <X size={32} />
                 </button>
@@ -115,7 +130,7 @@ return () => window.removeEventListener("scroll", onScroll);
                 {NAV_ITEMS.map((item) => (
                   <Link
                     key={item}
-                    to={item === 'Home' ? '/' : `/${item.toLowerCase().replace(/ /g, '-')}`}
+                    to={getItemPath(item)}
                     onClick={() => setIsOpen(false)}
                   >
                     {item}
